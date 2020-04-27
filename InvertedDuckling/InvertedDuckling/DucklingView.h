@@ -11,7 +11,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DucklingView : UIView
+
 @property(nonatomic)float clock;
+
++(CGPoint)point:(CGPoint)point angle:(CGFloat)angle;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

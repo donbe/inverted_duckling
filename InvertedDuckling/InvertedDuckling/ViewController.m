@@ -40,6 +40,9 @@
     self.slider = [[UISlider alloc] initWithFrame:CGRectMake(20, 550, self.view.frame.size.width-40, 50)];
     [self.slider addTarget:self action:@selector(sliderValueChange:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:self.slider];
+    
+    
+    
 }
 
 -(void)triggerButtonAction{
