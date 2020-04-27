@@ -1,0 +1,590 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		36C8EC1D2451741800CB20B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C8EC1C2451741800CB20B0 /* AppDelegate.m */; };
+		36C8EC202451741800CB20B0 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C8EC1F2451741800CB20B0 /* SceneDelegate.m */; };
+		36C8EC232451741800CB20B0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C8EC222451741800CB20B0 /* ViewController.m */; };
+		36C8EC262451741800CB20B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36C8EC242451741800CB20B0 /* Main.storyboard */; };
+		36C8EC282451741C00CB20B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36C8EC272451741C00CB20B0 /* Assets.xcassets */; };
+		36C8EC2B2451741C00CB20B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36C8EC292451741C00CB20B0 /* LaunchScreen.storyboard */; };
+		36C8EC2E2451741C00CB20B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C8EC2D2451741C00CB20B0 /* main.m */; };
+		36C8EC382451741C00CB20B0 /* InvertedDucklingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C8EC372451741C00CB20B0 /* InvertedDucklingTests.m */; };
+		36C8EC432451741C00CB20B0 /* InvertedDucklingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C8EC422451741C00CB20B0 /* InvertedDucklingUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		36C8EC342451741C00CB20B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36C8EC102451741800CB20B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 36C8EC172451741800CB20B0;
+			remoteInfo = InvertedDuckling;
+		};
+		36C8EC3F2451741C00CB20B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36C8EC102451741800CB20B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 36C8EC172451741800CB20B0;
+			remoteInfo = InvertedDuckling;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		36C8EC182451741800CB20B0 /* InvertedDuckling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InvertedDuckling.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		36C8EC1B2451741800CB20B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		36C8EC1C2451741800CB20B0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		36C8EC1E2451741800CB20B0 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		36C8EC1F2451741800CB20B0 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		36C8EC212451741800CB20B0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		36C8EC222451741800CB20B0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		36C8EC252451741800CB20B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		36C8EC272451741C00CB20B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		36C8EC2A2451741C00CB20B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		36C8EC2C2451741C00CB20B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36C8EC2D2451741C00CB20B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		36C8EC332451741C00CB20B0 /* InvertedDucklingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InvertedDucklingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		36C8EC372451741C00CB20B0 /* InvertedDucklingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvertedDucklingTests.m; sourceTree = "<group>"; };
+		36C8EC392451741C00CB20B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36C8EC3E2451741C00CB20B0 /* InvertedDucklingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InvertedDucklingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		36C8EC422451741C00CB20B0 /* InvertedDucklingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvertedDucklingUITests.m; sourceTree = "<group>"; };
+		36C8EC442451741C00CB20B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		36C8EC152451741800CB20B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36C8EC302451741C00CB20B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36C8EC3B2451741C00CB20B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		36C8EC0F2451741800CB20B0 = {
+			isa = PBXGroup;
+			children = (
+				36C8EC1A2451741800CB20B0 /* InvertedDuckling */,
+				36C8EC362451741C00CB20B0 /* InvertedDucklingTests */,
+				36C8EC412451741C00CB20B0 /* InvertedDucklingUITests */,
+				36C8EC192451741800CB20B0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		36C8EC192451741800CB20B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				36C8EC182451741800CB20B0 /* InvertedDuckling.app */,
+				36C8EC332451741C00CB20B0 /* InvertedDucklingTests.xctest */,
+				36C8EC3E2451741C00CB20B0 /* InvertedDucklingUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		36C8EC1A2451741800CB20B0 /* InvertedDuckling */ = {
+			isa = PBXGroup;
+			children = (
+				36C8EC1B2451741800CB20B0 /* AppDelegate.h */,
+				36C8EC1C2451741800CB20B0 /* AppDelegate.m */,
+				36C8EC1E2451741800CB20B0 /* SceneDelegate.h */,
+				36C8EC1F2451741800CB20B0 /* SceneDelegate.m */,
+				36C8EC212451741800CB20B0 /* ViewController.h */,
+				36C8EC222451741800CB20B0 /* ViewController.m */,
+				36C8EC242451741800CB20B0 /* Main.storyboard */,
+				36C8EC272451741C00CB20B0 /* Assets.xcassets */,
+				36C8EC292451741C00CB20B0 /* LaunchScreen.storyboard */,
+				36C8EC2C2451741C00CB20B0 /* Info.plist */,
+				36C8EC2D2451741C00CB20B0 /* main.m */,
+			);
+			path = InvertedDuckling;
+			sourceTree = "<group>";
+		};
+		36C8EC362451741C00CB20B0 /* InvertedDucklingTests */ = {
+			isa = PBXGroup;
+			children = (
+				36C8EC372451741C00CB20B0 /* InvertedDucklingTests.m */,
+				36C8EC392451741C00CB20B0 /* Info.plist */,
+			);
+			path = InvertedDucklingTests;
+			sourceTree = "<group>";
+		};
+		36C8EC412451741C00CB20B0 /* InvertedDucklingUITests */ = {
+			isa = PBXGroup;
+			children = (
+				36C8EC422451741C00CB20B0 /* InvertedDucklingUITests.m */,
+				36C8EC442451741C00CB20B0 /* Info.plist */,
+			);
+			path = InvertedDucklingUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		36C8EC172451741800CB20B0 /* InvertedDuckling */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36C8EC472451741C00CB20B0 /* Build configuration list for PBXNativeTarget "InvertedDuckling" */;
+			buildPhases = (
+				36C8EC142451741800CB20B0 /* Sources */,
+				36C8EC152451741800CB20B0 /* Frameworks */,
+				36C8EC162451741800CB20B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InvertedDuckling;
+			productName = InvertedDuckling;
+			productReference = 36C8EC182451741800CB20B0 /* InvertedDuckling.app */;
+			productType = "com.apple.product-type.application";
+		};
+		36C8EC322451741C00CB20B0 /* InvertedDucklingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36C8EC4A2451741C00CB20B0 /* Build configuration list for PBXNativeTarget "InvertedDucklingTests" */;
+			buildPhases = (
+				36C8EC2F2451741C00CB20B0 /* Sources */,
+				36C8EC302451741C00CB20B0 /* Frameworks */,
+				36C8EC312451741C00CB20B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				36C8EC352451741C00CB20B0 /* PBXTargetDependency */,
+			);
+			name = InvertedDucklingTests;
+			productName = InvertedDucklingTests;
+			productReference = 36C8EC332451741C00CB20B0 /* InvertedDucklingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		36C8EC3D2451741C00CB20B0 /* InvertedDucklingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36C8EC4D2451741C00CB20B0 /* Build configuration list for PBXNativeTarget "InvertedDucklingUITests" */;
+			buildPhases = (
+				36C8EC3A2451741C00CB20B0 /* Sources */,
+				36C8EC3B2451741C00CB20B0 /* Frameworks */,
+				36C8EC3C2451741C00CB20B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				36C8EC402451741C00CB20B0 /* PBXTargetDependency */,
+			);
+			name = InvertedDucklingUITests;
+			productName = InvertedDucklingUITests;
+			productReference = 36C8EC3E2451741C00CB20B0 /* InvertedDucklingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		36C8EC102451741800CB20B0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = donbe;
+				TargetAttributes = {
+					36C8EC172451741800CB20B0 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					36C8EC322451741C00CB20B0 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 36C8EC172451741800CB20B0;
+					};
+					36C8EC3D2451741C00CB20B0 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 36C8EC172451741800CB20B0;
+					};
+				};
+			};
+			buildConfigurationList = 36C8EC132451741800CB20B0 /* Build configuration list for PBXProject "InvertedDuckling" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 36C8EC0F2451741800CB20B0;
+			productRefGroup = 36C8EC192451741800CB20B0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				36C8EC172451741800CB20B0 /* InvertedDuckling */,
+				36C8EC322451741C00CB20B0 /* InvertedDucklingTests */,
+				36C8EC3D2451741C00CB20B0 /* InvertedDucklingUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		36C8EC162451741800CB20B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36C8EC2B2451741C00CB20B0 /* LaunchScreen.storyboard in Resources */,
+				36C8EC282451741C00CB20B0 /* Assets.xcassets in Resources */,
+				36C8EC262451741800CB20B0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36C8EC312451741C00CB20B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36C8EC3C2451741C00CB20B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		36C8EC142451741800CB20B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36C8EC232451741800CB20B0 /* ViewController.m in Sources */,
+				36C8EC1D2451741800CB20B0 /* AppDelegate.m in Sources */,
+				36C8EC2E2451741C00CB20B0 /* main.m in Sources */,
+				36C8EC202451741800CB20B0 /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36C8EC2F2451741C00CB20B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36C8EC382451741C00CB20B0 /* InvertedDucklingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36C8EC3A2451741C00CB20B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36C8EC432451741C00CB20B0 /* InvertedDucklingUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		36C8EC352451741C00CB20B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 36C8EC172451741800CB20B0 /* InvertedDuckling */;
+			targetProxy = 36C8EC342451741C00CB20B0 /* PBXContainerItemProxy */;
+		};
+		36C8EC402451741C00CB20B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 36C8EC172451741800CB20B0 /* InvertedDuckling */;
+			targetProxy = 36C8EC3F2451741C00CB20B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		36C8EC242451741800CB20B0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				36C8EC252451741800CB20B0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		36C8EC292451741C00CB20B0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				36C8EC2A2451741C00CB20B0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		36C8EC452451741C00CB20B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		36C8EC462451741C00CB20B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		36C8EC482451741C00CB20B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DXU7P74W58;
+				INFOPLIST_FILE = InvertedDuckling/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.donbe.InvertedDuckling;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		36C8EC492451741C00CB20B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DXU7P74W58;
+				INFOPLIST_FILE = InvertedDuckling/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.donbe.InvertedDuckling;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		36C8EC4B2451741C00CB20B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DXU7P74W58;
+				INFOPLIST_FILE = InvertedDucklingTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.donbe.InvertedDucklingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InvertedDuckling.app/InvertedDuckling";
+			};
+			name = Debug;
+		};
+		36C8EC4C2451741C00CB20B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DXU7P74W58;
+				INFOPLIST_FILE = InvertedDucklingTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.donbe.InvertedDucklingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InvertedDuckling.app/InvertedDuckling";
+			};
+			name = Release;
+		};
+		36C8EC4E2451741C00CB20B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DXU7P74W58;
+				INFOPLIST_FILE = InvertedDucklingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.donbe.InvertedDucklingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = InvertedDuckling;
+			};
+			name = Debug;
+		};
+		36C8EC4F2451741C00CB20B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DXU7P74W58;
+				INFOPLIST_FILE = InvertedDucklingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.donbe.InvertedDucklingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = InvertedDuckling;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		36C8EC132451741800CB20B0 /* Build configuration list for PBXProject "InvertedDuckling" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36C8EC452451741C00CB20B0 /* Debug */,
+				36C8EC462451741C00CB20B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36C8EC472451741C00CB20B0 /* Build configuration list for PBXNativeTarget "InvertedDuckling" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36C8EC482451741C00CB20B0 /* Debug */,
+				36C8EC492451741C00CB20B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36C8EC4A2451741C00CB20B0 /* Build configuration list for PBXNativeTarget "InvertedDucklingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36C8EC4B2451741C00CB20B0 /* Debug */,
+				36C8EC4C2451741C00CB20B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36C8EC4D2451741C00CB20B0 /* Build configuration list for PBXNativeTarget "InvertedDucklingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36C8EC4E2451741C00CB20B0 /* Debug */,
+				36C8EC4F2451741C00CB20B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 36C8EC102451741800CB20B0 /* Project object */;
+}
