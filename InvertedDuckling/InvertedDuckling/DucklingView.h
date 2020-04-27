@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DucklingView : UIView
-
+@property(nonatomic)float clock;
 @end
 
 NS_ASSUME_NONNULL_END

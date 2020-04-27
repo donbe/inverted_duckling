@@ -1,28 +1,17 @@
-[{
-        "start_time": "0",
+[
+    {
+        "start_time": 0,
         "duration": 1,
-        "text": "111111",
-        "rotate": 0,
-        "font_size": 14,
-        "start_font_color": "000000",
-        "end_font_color": "333333",
-        "animation_type": 0
-    }, {
-        "start_time": "3",
+        "text": "asdf大家好",
+        "color": "ff00ff",
+        "transition_animation": 0,
+        "text_animation": 0
+    },{
+        "start_time": 0,
         "duration": 1,
-        "text": "222222",
-        "rotate": 0,
-        "font_size": 14,
-        "start_font_color": "000000",
-        "end_font_color": "333333",
-        "animation_type": 0
-    }, {
-        "start_time": "5",
-        "duration": 1,
-        "text": "333333",
-        "rotate": 1,
-        "font_size": 14,
-        "start_font_color": "000000",
-        "end_font_color": "333333",
-        "animation_type": 0
-    }]
+        "text": "Transition animation",
+        "color": "333333",
+        "transition_animation": 0,
+        "text_animation": 0
+    },
+]
