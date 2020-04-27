@@ -16,6 +16,9 @@
 		36C8EC2E2451741C00CB20B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C8EC2D2451741C00CB20B0 /* main.m */; };
 		36C8EC382451741C00CB20B0 /* InvertedDucklingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C8EC372451741C00CB20B0 /* InvertedDucklingTests.m */; };
 		36C8EC432451741C00CB20B0 /* InvertedDucklingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C8EC422451741C00CB20B0 /* InvertedDucklingUITests.m */; };
+		36C8EC52245533A500CB20B0 /* DucklingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C8EC51245533A500CB20B0 /* DucklingView.m */; };
+		36C8EC5424557C9400CB20B0 /* demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 36C8EC5324557C9400CB20B0 /* demo.json */; };
+		36C8EC57245586B600CB20B0 /* UIColor+DD.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C8EC56245586B600CB20B0 /* UIColor+DD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,12 @@
 		36C8EC3E2451741C00CB20B0 /* InvertedDucklingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InvertedDucklingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36C8EC422451741C00CB20B0 /* InvertedDucklingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvertedDucklingUITests.m; sourceTree = "<group>"; };
 		36C8EC442451741C00CB20B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36C8EC50245533A500CB20B0 /* DucklingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DucklingView.h; sourceTree = "<group>"; };
+		36C8EC51245533A500CB20B0 /* DucklingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DucklingView.m; sourceTree = "<group>"; };
+		36C8EC5324557C9400CB20B0 /* demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo.json; sourceTree = "<group>"; };
+		36C8EC55245586B600CB20B0 /* UIColor+DD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+DD.h"; sourceTree = "<group>"; };
+		36C8EC56245586B600CB20B0 /* UIColor+DD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DD.m"; sourceTree = "<group>"; };
+		36C8EC582455870800CB20B0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +93,7 @@
 		36C8EC0F2451741800CB20B0 = {
 			isa = PBXGroup;
 			children = (
+				36C8EC582455870800CB20B0 /* PrefixHeader.pch */,
 				36C8EC1A2451741800CB20B0 /* InvertedDuckling */,
 				36C8EC362451741C00CB20B0 /* InvertedDucklingTests */,
 				36C8EC412451741C00CB20B0 /* InvertedDucklingUITests */,
@@ -104,17 +114,22 @@
 		36C8EC1A2451741800CB20B0 /* InvertedDuckling */ = {
 			isa = PBXGroup;
 			children = (
+				36C8EC5324557C9400CB20B0 /* demo.json */,
+				36C8EC50245533A500CB20B0 /* DucklingView.h */,
+				36C8EC51245533A500CB20B0 /* DucklingView.m */,
+				36C8EC212451741800CB20B0 /* ViewController.h */,
+				36C8EC222451741800CB20B0 /* ViewController.m */,
 				36C8EC1B2451741800CB20B0 /* AppDelegate.h */,
 				36C8EC1C2451741800CB20B0 /* AppDelegate.m */,
 				36C8EC1E2451741800CB20B0 /* SceneDelegate.h */,
 				36C8EC1F2451741800CB20B0 /* SceneDelegate.m */,
-				36C8EC212451741800CB20B0 /* ViewController.h */,
-				36C8EC222451741800CB20B0 /* ViewController.m */,
 				36C8EC242451741800CB20B0 /* Main.storyboard */,
 				36C8EC272451741C00CB20B0 /* Assets.xcassets */,
 				36C8EC292451741C00CB20B0 /* LaunchScreen.storyboard */,
 				36C8EC2C2451741C00CB20B0 /* Info.plist */,
 				36C8EC2D2451741C00CB20B0 /* main.m */,
+				36C8EC55245586B600CB20B0 /* UIColor+DD.h */,
+				36C8EC56245586B600CB20B0 /* UIColor+DD.m */,
 			);
 			path = InvertedDuckling;
 			sourceTree = "<group>";
@@ -242,6 +257,7 @@
 			files = (
 				36C8EC2B2451741C00CB20B0 /* LaunchScreen.storyboard in Resources */,
 				36C8EC282451741C00CB20B0 /* Assets.xcassets in Resources */,
+				36C8EC5424557C9400CB20B0 /* demo.json in Resources */,
 				36C8EC262451741800CB20B0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,7 +286,9 @@
 				36C8EC232451741800CB20B0 /* ViewController.m in Sources */,
 				36C8EC1D2451741800CB20B0 /* AppDelegate.m in Sources */,
 				36C8EC2E2451741C00CB20B0 /* main.m in Sources */,
+				36C8EC57245586B600CB20B0 /* UIColor+DD.m in Sources */,
 				36C8EC202451741800CB20B0 /* SceneDelegate.m in Sources */,
+				36C8EC52245533A500CB20B0 /* DucklingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +459,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DXU7P74W58;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = InvertedDuckling/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -458,6 +477,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DXU7P74W58;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = InvertedDuckling/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
