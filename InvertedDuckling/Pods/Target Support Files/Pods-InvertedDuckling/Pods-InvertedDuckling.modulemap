@@ -1,0 +1,6 @@
+framework module Pods_InvertedDuckling {
+  umbrella header "Pods-InvertedDuckling-umbrella.h"
+
+  export *
+  module * { export * }
+}
