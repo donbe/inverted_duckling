@@ -119,21 +119,19 @@
         case 2: {
             if (index == 0){
                 // 旋转第一行
-                rect = [self rotateFirstLine:attrStr
+                rect = [self rotateFirstLine:text
                                        color:color
                                     fontSize:fontSize
                                 preAnimation:preAnimation
                                     preFrame:preFrame
                                         rect:rect
-                                 stringAttrs:stringAttrs
-                                        text:text
                                  tstionScale:tstionScale];
             }else if(index == 1){ // 第一行字也需要处理旋转
                 // 旋转第二行
-                rect = [self rotateSecondLine:attrStr preAnimation:preAnimation preFrame:preFrame rect:rect tstionScale:tstionScale];
+                rect = [self rotateOtherLine:attrStr preAnimation:preAnimation preFrame:preFrame rect:rect tstionScale:tstionScale];
             }else{
                 // 旋转其他行
-                rect = [self rotateOtherLine:attrStr preAnimation:preAnimation preFrame:preFrame rect:rect];
+                rect = [self rotateOtherLine:attrStr preAnimation:preAnimation preFrame:preFrame rect:rect tstionScale:1];
             }
             
             return rect;
@@ -145,7 +143,7 @@
             if (index == 0) {
                 
                 // 缩放第一行
-                rect = [self scaleFirstLine:attrStr color:color fontSize:fontSize preFrame:preFrame rect:rect stringAttrs:stringAttrs text:text tstionScale:tstionScale];
+                rect = [self scaleFirstLine:text color:color fontSize:fontSize preFrame:preFrame tstionScale:tstionScale];
                 
             }else{
                 // 计算顶点坐标
@@ -174,15 +172,22 @@
 }
 
 
-// 旋转第一行
-- (CGRect)rotateFirstLine:(NSAttributedString *)attrStr color:(NSString *)color fontSize:(CGFloat)fontSize preAnimation:(NSInteger)preAnimation preFrame:(const CGRect )preFrame rect:(CGRect)rect stringAttrs:(NSDictionary *)stringAttrs text:(NSString *)text tstionScale:(float)tstionScale {
+/// 旋转第一行，旋转是通过左上角或者右上角进行旋转
+/// @param color                         字的颜色
+/// @param fontSize                   字体大小
+/// @param preAnimation          前一行的旋转类型，1左旋，2右旋
+/// @param preFrame                   前一行字的frame
+/// @param rect                            当前行字的frame
+/// @param text                            当前行文本
+/// @param tstionScale            旋转的中间状态百分比
+- (CGRect)rotateFirstLine:(NSString *)text color:(NSString *)color fontSize:(CGFloat)fontSize preAnimation:(NSInteger)preAnimation preFrame:(const CGRect )preFrame rect:(CGRect)rect tstionScale:(float)tstionScale {
     
     // 计算透明度的中间态
-    stringAttrs = @{
+    NSDictionary *stringAttrs = @{
         NSFontAttributeName : [UIFont systemFontOfSize:fontSize],
         NSForegroundColorAttributeName : [[UIColor colorFromHexAlphaString:color] colorWithAlphaComponent:tstionScale]
     };
-    attrStr = [[NSAttributedString alloc] initWithString:text attributes:stringAttrs];
+    NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString:text attributes:stringAttrs];
     
     float angle;
     CGPoint newOriginPoint;
@@ -232,8 +237,15 @@
     return rect;
 }
 
-// 旋转第二行
-- (CGRect)rotateSecondLine:(NSAttributedString *)attrStr preAnimation:(NSInteger)preAnimation preFrame:(const CGRect )preFrame rect:(CGRect )rect tstionScale:(float)tstionScale {
+
+/// 旋转其他行，并不围绕着某个点旋转，单纯的移动原点来实现
+/// @param attrStr                    旋转的字
+/// @param preAnimation         左旋还是右旋 1左2右
+/// @param preFrame                 上一行字的frame
+/// @param rect                          本行字的frame
+/// @param tstionScale          旋转的中间状态百分比
+/// @return 返回最终确定的本行字的frame
+- (CGRect)rotateOtherLine:(NSAttributedString *)attrStr preAnimation:(NSInteger)preAnimation preFrame:(const CGRect )preFrame rect:(CGRect )rect tstionScale:(float)tstionScale {
     
     // 计算原点最终的点和字角度旋转
     CGPoint newOriginPoint;
@@ -252,7 +264,7 @@
         angle = M_PI_2;
         
         // 原点坐标
-        newOriginPoint.x = preFrame.origin.x + preFrame.size.width + self.lineInterval;
+        newOriginPoint.x = preFrame.size.width/2 + self.lineInterval;
         newOriginPoint.y = preFrame.origin.y + preFrame.size.height - rect.size.width/2;
     }
     
@@ -276,58 +288,18 @@
 }
 
 
-// 旋转第三行以及以上
-- (CGRect)rotateOtherLine:(NSAttributedString *)attrStr preAnimation:(NSInteger)preAnimation preFrame:(const CGRect )preFrame rect:(CGRect )rect {
-    
-    // 计算原点最终的点和字角度旋转
-    CGPoint newOriginPoint;
-    float  angle;
-    
-    if (preAnimation == 1) { // 左旋
-        
-        // 旋转弧度
-        angle = -M_PI_2;
-        
-        // 原点坐标
-        newOriginPoint.x = preFrame.origin.x - self.lineInterval ;
-        newOriginPoint.y = preFrame.origin.y + preFrame.size.height - rect.size.width/2;
-        
-    }else{// 右旋
-        
-        // 旋转弧度
-        angle = M_PI_2;
-        
-        // 原点坐标
-        newOriginPoint.x = preFrame.size.width/2 + self.lineInterval;
-        newOriginPoint.y = preFrame.origin.y + preFrame.size.height - rect.size.width/2;
-    }
-    
-    
-    // 坐标系的移动和旋转
-    CGContextTranslateCTM(UIGraphicsGetCurrentContext(),newOriginPoint.x,newOriginPoint.y);
-    CGContextRotateCTM (UIGraphicsGetCurrentContext(), angle);
-    
-    // 计算顶点坐标
-    rect.origin.x = -rect.size.width/2;
-    rect.origin.y = - rect.size.height;
-    
-    // 开始写字
-    [self drawText:attrStr rect:rect];
-    
-    return rect;
-}
 
 // 缩放第一行
-- (CGRect)scaleFirstLine:(NSAttributedString *)attrStr color:(NSString *)color fontSize:(CGFloat )fontSize preFrame:(const CGRect )preFrame rect:(CGRect )rect stringAttrs:(NSDictionary *)stringAttrs text:(NSString *)text tstionScale:(float)tstionScale {
+- (CGRect)scaleFirstLine:(NSString *)text color:(NSString *)color fontSize:(CGFloat )fontSize preFrame:(const CGRect )preFrame tstionScale:(float)tstionScale {
     
     // 重新计算首行中间态
     fontSize *= tstionScale;
-    stringAttrs = @{
+    NSDictionary *stringAttrs = @{
         NSFontAttributeName : [UIFont systemFontOfSize:fontSize],
         NSForegroundColorAttributeName : [UIColor colorFromHexAlphaString:color]
     };
-    attrStr = [[NSAttributedString alloc] initWithString:text attributes:stringAttrs];
-    rect = [text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
+    NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString:text attributes:stringAttrs];
+    CGRect rect = [text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
                                options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
                             attributes:stringAttrs
                                context:nil];
