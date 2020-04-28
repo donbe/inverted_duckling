@@ -11,5 +11,17 @@
         "text": "Transition animation",
         "color": "333333",
         "transition_animation": 0,
+    },{
+        "start_time": 0,
+        "duration": 1,
+        "text": "asdfasdf",
+        "color": "333333",
+        "transition_animation": 1,
+    },{
+        "start_time": 0,
+        "duration": 1,
+        "text": "2121212112234234",
+        "color": "333333",
+        "transition_animation": 0,
     }
 ]
