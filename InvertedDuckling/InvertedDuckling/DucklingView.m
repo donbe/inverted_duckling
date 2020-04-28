@@ -8,8 +8,6 @@
 
 #import "DucklingView.h"
 
-
-//static CGFloat interval_x = 0;// 旋转后的横向间距
 static CGFloat interval_line = 0;// 上下两行的间距
 static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
 
@@ -71,12 +69,12 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
 #pragma mark - 主要的绘图函数
 
 // 绘制一帧中的某一行
--(CGRect )drawItem:(NSDictionary *)item         //当前行属性
-           preItem:(NSDictionary *)preItem      //前一行字的属性，这一行影响了当前行的位置
-          preFrame:(CGRect)preFrame             //前一行字的frame
-             index:(NSInteger)index             //当前第几行字
-         tstionScale:(float)tstionScale         //处于转场百分比,值 0-1 之间
-        totalScale:(float)totalScale            //累加缩放
+-(CGRect )drawItem:(NSDictionary *)item         // 当前行属性
+           preItem:(NSDictionary *)preItem      // 前一行字的属性，这一行影响了当前行的位置
+          preFrame:(CGRect)preFrame             // 前一行字的frame
+             index:(NSInteger)index             // 当前第几行字
+         tstionScale:(float)tstionScale         // 处于转场百分比,值 0-1 之间
+        totalScale:(float)totalScale            // 累加缩放
 {
     
     NSString *text = item[@"text"];
@@ -129,7 +127,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
         }
             break;
           
-        case 3: //缩放转场
+        case 3: // 缩放转场
         case 4:{
             if (index == 0) {
                 
@@ -148,7 +146,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
             return rect;
         }
             
-        default: {//没有任何转场动画，不放大，不缩小，不旋转
+        default: {// 没有任何转场动画，不放大，不缩小，不旋转
             
             // 计算顶点坐标
             rect.origin.x = -rect.size.width/2;
@@ -175,12 +173,12 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
     
     float angle;
     CGPoint newOriginPoint;
-    if (preAnimation == 1) { //左旋
+    if (preAnimation == 1) { // 左旋
         
-        //旋转弧度
+        // 旋转弧度
         angle = M_PI_2;
         
-        //计算当前所需旋转弧度
+        // 计算当前所需旋转弧度
         angle *= 1-tstionScale;
         
         // 左上角坐标
@@ -188,12 +186,12 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
         
         // 计算以字的左上角为原点对坐标轴旋转后的坐标
         newOriginPoint = [DucklingView rotatePoint:CGPointZero basePoint:ulp angle:angle];
-    }else{ //右旋
+    }else{ // 右旋
         
-        //旋转弧度
+        // 旋转弧度
         angle = -M_PI_2;
         
-        //计算当前所需旋转弧度
+        // 计算当前所需旋转弧度
         angle *= 1-tstionScale;
         
         // 右上角坐标
@@ -228,7 +226,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
     CGPoint newOriginPoint;
     float  angle;
     
-    if (preAnimation == 1) { //左旋
+    if (preAnimation == 1) { // 左旋
         // 旋转弧度
         angle = -M_PI_2;
         
@@ -236,7 +234,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
         newOriginPoint.x = preFrame.origin.x - interval_line - rect.size.height/2;
         newOriginPoint.y = preFrame.origin.y + preFrame.size.height - rect.size.width/2;
         
-    }else{//右旋
+    }else{// 右旋
         // 旋转弧度
         angle = M_PI_2;
         
@@ -250,7 +248,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
     newOriginPoint.y *= tstionScale;
     angle *= tstionScale;
     
-    //坐标系的移动和旋转
+    // 坐标系的移动和旋转
     CGContextTranslateCTM(UIGraphicsGetCurrentContext(),newOriginPoint.x,newOriginPoint.y);
     CGContextRotateCTM (UIGraphicsGetCurrentContext(), angle);
     
@@ -272,7 +270,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
     CGPoint newOriginPoint;
     float  angle;
     
-    if (preAnimation == 1) { //左旋
+    if (preAnimation == 1) { // 左旋
         
         // 旋转弧度
         angle = -M_PI_2;
@@ -281,7 +279,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
         newOriginPoint.x = preFrame.origin.x - interval_line ;
         newOriginPoint.y = preFrame.origin.y + preFrame.size.height - rect.size.width/2;
         
-    }else{//右旋
+    }else{// 右旋
         
         // 旋转弧度
         angle = M_PI_2;
@@ -292,7 +290,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
     }
     
     
-    //坐标系的移动和旋转
+    // 坐标系的移动和旋转
     CGContextTranslateCTM(UIGraphicsGetCurrentContext(),newOriginPoint.x,newOriginPoint.y);
     CGContextRotateCTM (UIGraphicsGetCurrentContext(), angle);
     
