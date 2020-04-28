@@ -4,7 +4,7 @@
         "duration": 1,
         "text": "asdf大家好",
         "color": "ff00ff",
-        "transition_animation": 1,
+        "transition_animation": 3,
     },{
         "start_time": 0,
         "duration": 1,

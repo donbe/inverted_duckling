@@ -32,6 +32,7 @@
     self.iDuckling.backgroundColor = [UIColor colorFromHexAlphaString:@"f1f1f1"];
     [self.view addSubview:self.iDuckling];
     
+    self.iDuckling.data = [self testData];
     
 //    [self addButtonWith:@"开始" frame:CGRectMake(20, 530, 100, 50) action:@selector(triggerButtonAction)];
 //    [self addButtonWith:@"停止" frame:CGRectMake(140, 530, 100, 50) action:@selector(triggerButtonAction)];
@@ -67,5 +68,17 @@
     [self.view addSubview:record];
 }
 
+
+-(NSArray <DucklingModel *>*)testData{
+    
+    NSString *fileName = [[NSBundle mainBundle] pathForResource:@"demo" ofType:@"json"];
+    NSData *partyData = [[NSData alloc] initWithContentsOfFile:fileName];
+    
+    NSError *error;
+    NSArray *data = [DucklingModel arrayOfModelsFromData:partyData error:&error];
+    assert(error == nil);
+    
+    return data;
+}
 
 @end

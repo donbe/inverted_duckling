@@ -20,6 +20,7 @@
 		36C8EC5424557C9400CB20B0 /* demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 36C8EC5324557C9400CB20B0 /* demo.json */; };
 		36C8EC57245586B600CB20B0 /* UIColor+DD.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C8EC56245586B600CB20B0 /* UIColor+DD.m */; };
 		36C8EC5D2458284C00CB20B0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C8EC5C2458284C00CB20B0 /* SystemConfiguration.framework */; };
+		36C8EC6624582C6800CB20B0 /* DucklingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C8EC6524582C6800CB20B0 /* DucklingModel.m */; };
 		41D8A117369F261DCFD58309 /* Pods_InvertedDuckling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC175773BA0494B40C0016E /* Pods_InvertedDuckling.framework */; };
 		66749D96F5EC58BBC06E5D62 /* Pods_InvertedDuckling_InvertedDucklingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F15ECA452DACACEB6BFF749B /* Pods_InvertedDuckling_InvertedDucklingUITests.framework */; };
 		FF8CF25039ACF17E2EDF58B8 /* Pods_InvertedDucklingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7ED156128A50980D11ABA79 /* Pods_InvertedDucklingTests.framework */; };
@@ -69,6 +70,8 @@
 		36C8EC56245586B600CB20B0 /* UIColor+DD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DD.m"; sourceTree = "<group>"; };
 		36C8EC582455870800CB20B0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		36C8EC5C2458284C00CB20B0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		36C8EC6424582C6800CB20B0 /* DucklingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DucklingModel.h; sourceTree = "<group>"; };
+		36C8EC6524582C6800CB20B0 /* DucklingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DucklingModel.m; sourceTree = "<group>"; };
 		6265E0BFC227FFA211C91716 /* Pods-InvertedDuckling-InvertedDucklingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InvertedDuckling-InvertedDucklingUITests.release.xcconfig"; path = "Target Support Files/Pods-InvertedDuckling-InvertedDucklingUITests/Pods-InvertedDuckling-InvertedDucklingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		626C6287F428503D534BD9A6 /* Pods-InvertedDucklingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InvertedDucklingTests.release.xcconfig"; path = "Target Support Files/Pods-InvertedDucklingTests/Pods-InvertedDucklingTests.release.xcconfig"; sourceTree = "<group>"; };
 		79BE51A013E64CE732927D13 /* Pods-InvertedDuckling.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InvertedDuckling.release.xcconfig"; path = "Target Support Files/Pods-InvertedDuckling/Pods-InvertedDuckling.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +140,8 @@
 				36C8EC5324557C9400CB20B0 /* demo.json */,
 				36C8EC50245533A500CB20B0 /* DucklingView.h */,
 				36C8EC51245533A500CB20B0 /* DucklingView.m */,
+				36C8EC6424582C6800CB20B0 /* DucklingModel.h */,
+				36C8EC6524582C6800CB20B0 /* DucklingModel.m */,
 				36C8EC212451741800CB20B0 /* ViewController.h */,
 				36C8EC222451741800CB20B0 /* ViewController.m */,
 				36C8EC1B2451741800CB20B0 /* AppDelegate.h */,
@@ -441,6 +446,7 @@
 				36C8EC57245586B600CB20B0 /* UIColor+DD.m in Sources */,
 				36C8EC202451741800CB20B0 /* SceneDelegate.m in Sources */,
 				36C8EC52245533A500CB20B0 /* DucklingView.m in Sources */,
+				36C8EC6624582C6800CB20B0 /* DucklingModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

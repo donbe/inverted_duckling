@@ -13,8 +13,6 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
 
 @interface DucklingView()
 
-@property(nonatomic,strong)NSArray *testData;
-
 @end
 
 
@@ -34,7 +32,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
     // 移动原点到正中间
     CGContextTranslateCTM(UIGraphicsGetCurrentContext(), self.frame.size.width/2, self.frame.size.height/2);
     
-    NSArray *items = [self testData];
+    NSArray <DucklingModel *>*items = [self data];
     CGRect frame = CGRectZero;
     
     float totalScale = 1;
@@ -48,7 +46,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
         }
         
         // 计算累加的缩放比例
-        NSInteger animation = [items[i][@"transition_animation"] intValue];
+        NSInteger animation = items[i].transitionAnimation;
         if (i>0) {
             if (animation==3) {
                 totalScale *= scaleFactor;
@@ -61,7 +59,6 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
             }else if (animation==4) {
                 totalScale = totalScale - (scaleFactor-1)*self.clock;
             }
-            
         }
     }
 }
@@ -69,16 +66,16 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
 #pragma mark - 主要的绘图函数
 
 // 绘制一帧中的某一行
--(CGRect )drawItem:(NSDictionary *)item         // 当前行属性
-           preItem:(NSDictionary *)preItem      // 前一行字的属性，这一行影响了当前行的位置
+-(CGRect )drawItem:(DucklingModel *)item         // 当前行属性
+           preItem:(DucklingModel *)preItem      // 前一行字的属性，这一行影响了当前行的位置
           preFrame:(CGRect)preFrame             // 前一行字的frame
              index:(NSInteger)index             // 当前第几行字
          tstionScale:(float)tstionScale         // 处于转场百分比,值 0-1 之间
         totalScale:(float)totalScale            // 累加缩放
 {
     
-    NSString *text = item[@"text"];
-    NSString *color = item[@"color"];
+    NSString *text = item.text;
+    NSString *color = item.color;
     
     // 预估字体大小
     CGFloat fontSize = [self estimateFontSize:text];
@@ -97,9 +94,9 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
     
     
     // 处理受上一行的转场动画影响到当前行
-    NSInteger preAnimation = [preItem[@"transition_animation"] intValue];
+    NSInteger preAnimation = preItem.transitionAnimation;
     // 首行特殊处理
-    if (index == 0) preAnimation = [item[@"transition_animation"] intValue];
+    if (index == 0) preAnimation = item.transitionAnimation;
     
     switch (preAnimation) {
         case 1:
@@ -333,20 +330,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
 
 #pragma mark -
 
--(NSArray *)testData{
-    
-    if (_testData==nil) {
-        NSString *fileName = [[NSBundle mainBundle] pathForResource:@"demo" ofType:@"json"];
-        NSData *partyData = [[NSData alloc] initWithContentsOfFile:fileName];
-        
-        NSError *error;
-        _testData = [NSJSONSerialization JSONObjectWithData:partyData
-          options:0
-            error:&error];
-    }
-    
-    return _testData;
-}
+
 
 
 #pragma mark - help
@@ -364,7 +348,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
 
 /// 这个方法提出来，主要是为了加字的背景，方便调试
 -(void)drawText:(NSAttributedString *)text rect:(CGRect)rect{
-    [DucklingView drawRectangle:rect];
+//    [DucklingView drawRectangle:rect];
     [text drawAtPoint:CGPointMake(rect.origin.x, rect.origin.y)];
 }
 

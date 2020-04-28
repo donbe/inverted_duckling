@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DucklingModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface DucklingView : UIView
+
+@property(nonatomic,strong)NSArray <DucklingModel *> *data;
 
 @property(nonatomic)float clock;
 

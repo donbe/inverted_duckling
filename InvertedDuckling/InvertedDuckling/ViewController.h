@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DucklingModel.h"
 
 @interface ViewController : UIViewController
 
