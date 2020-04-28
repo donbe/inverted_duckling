@@ -45,18 +45,12 @@ static CGFloat interval_line = 0;// 上下两行的间距
            preItem:(NSDictionary *)preItem      //前一行字的属性，这一行影响了当前行的位置
           preFrame:(CGRect)preFrame             //前一行字的frame
              index:(NSInteger)index             //当前第几行字
-   tstionAnimation:(NSInteger)tstionAnimation   //转场动画
          tstionScale:(float)tstionScale         //处于转场百分比,值 0-1 之间
 {
     
-    // 转场动画
-    if (index == 0) {
-        tstionAnimation = [item[@"transition_animation"] intValue];
-    }
     NSString *text = item[@"text"];
     NSString *color = item[@"color"];
     CGFloat fontSize = [self estimateFontSize:text];
-    NSInteger preAnimation = [preItem[@"transition_animation"] intValue];
     
     // 终态计算
     NSDictionary* stringAttrs = @{
@@ -70,18 +64,21 @@ static CGFloat interval_line = 0;// 上下两行的间距
        context:nil];
     
     
-    // 第一行和第二行字，需要处理旋转转场或缩放转场
-    // 其他行只需要处理缩放转场
     
-    switch (tstionAnimation) {
-        // 旋转需要处理 第一行，第二行
-        case 1://左旋
-        case 2://右旋
+    // 处理上一行的动画效果，首行特殊处理
+    NSInteger preAnimation = [preItem[@"transition_animation"] intValue];
+    if (index == 0) preAnimation = [item[@"transition_animation"] intValue];
+    
+    switch (preAnimation) {
+        case 1:
+        case 2:
         {
             if (index == 0){
                 float angle;
                 CGPoint newOriginPoint;
-                if (tstionAnimation == 1) {
+                if (preAnimation == 1) { //左旋
+                    
+                    //旋转弧度
                     angle = M_PI_2;
                     
                     //计算当前所需旋转弧度
@@ -92,7 +89,9 @@ static CGFloat interval_line = 0;// 上下两行的间距
                     
                     // 计算以字的左上角为原点对坐标轴旋转后的坐标
                     newOriginPoint = [DucklingView rotatePoint:CGPointZero basePoint:ulp angle:angle];
-                }else{
+                }else{ //右旋
+                    
+                    //旋转弧度
                     angle = -M_PI_2;
                     
                     //计算当前所需旋转弧度
@@ -128,14 +127,21 @@ static CGFloat interval_line = 0;// 上下两行的间距
                 CGPoint newOriginPoint;
                 float  angle;
                 
-                if (tstionAnimation == 1) { //左旋
+                if (preAnimation == 1) { //左旋
+                    // 旋转弧度
+                    angle = -M_PI_2;
+                    
+                    // 原点坐标
                     newOriginPoint.x = preFrame.origin.x - interval_line - rect.size.height/2;
                     newOriginPoint.y = preFrame.origin.y + preFrame.size.height - rect.size.width/2;
-                    angle = -M_PI_2;
+                    
                 }else{//右旋
+                    // 旋转弧度
+                    angle = M_PI_2;
+                    
+                    // 原点坐标
                     newOriginPoint.x = preFrame.origin.x + preFrame.size.width + interval_line+rect.size.height/2;
                     newOriginPoint.y = preFrame.origin.y + preFrame.size.height - rect.size.width/2;
-                    angle = M_PI_2;
                 }
                 
                 // 计算中间态
@@ -157,51 +163,28 @@ static CGFloat interval_line = 0;// 上下两行的间距
                 
                 return rect;
             }else{
-                // 其他行，不处理
-            }
-        }
-            break;
-        case 3://放大
-        case 4://缩小
-        {
-            // 计算顶点坐标
-            rect.origin.x = -rect.size.width/2;
-            rect.origin.y = preFrame.origin.y - interval_line - rect.size.height;
-             
-            // 开始写字
-            [self drawText:attrStr rect:rect];
-        }
-            break;
-        default:
-        {
-            // 计算顶点坐标
-            rect.origin.x = -rect.size.width/2;
-            rect.origin.y = preFrame.origin.y - interval_line - rect.size.height;
-             
-            // 开始写字
-            [self drawText:attrStr rect:rect];
-        }
-            break;
-    }
-    
-    // 处理上一行的动画效果
-    switch (preAnimation) {
-        case 1:
-        case 2:
-        {
-            if (index > 1) {
+                
                 // 计算原点最终的点和字角度旋转
                 CGPoint newOriginPoint;
                 float  angle;
                 
                 if (preAnimation == 1) { //左旋
+                    
+                    // 旋转弧度
+                    angle = -M_PI_2;
+                    
+                    // 原点坐标
                     newOriginPoint.x = preFrame.origin.x - interval_line ;
                     newOriginPoint.y = preFrame.origin.y + preFrame.size.height - rect.size.width/2;
-                    angle = -M_PI_2;
+                    
                 }else{//右旋
+                    
+                    // 旋转弧度
+                    angle = M_PI_2;
+                    
+                    // 原点坐标
                     newOriginPoint.x = preFrame.size.width/2 + interval_line;
                     newOriginPoint.y = preFrame.origin.y + preFrame.size.height - rect.size.width/2;
-                    angle = M_PI_2;
                 }
                 
                 
@@ -213,7 +196,6 @@ static CGFloat interval_line = 0;// 上下两行的间距
                 rect.origin.x = -rect.size.width/2;
                 rect.origin.y = - rect.size.height;
                  
-                
                 // 开始写字
                 [self drawText:attrStr rect:rect];
                 
@@ -223,17 +205,19 @@ static CGFloat interval_line = 0;// 上下两行的间距
         }
             break;
             
-            
         default:
+        {
+            // 计算顶点坐标
+            rect.origin.x = -rect.size.width/2;
+            rect.origin.y = preFrame.origin.y - interval_line - rect.size.height;
+             
+            // 开始写字
+            [self drawText:attrStr rect:rect];
+            return rect;
+        }
             break;
     }
-    // 计算顶点坐标
-    rect.origin.x = -rect.size.width/2;
-    rect.origin.y = preFrame.origin.y - interval_line - rect.size.height;
-     
-    // 开始写字
-    [self drawText:attrStr rect:rect];
-    return rect;
+    
 }
 
 -(void)drawRect:(CGRect)rect{
@@ -250,12 +234,12 @@ static CGFloat interval_line = 0;// 上下两行的间距
     CGRect frame = CGRectZero;
     
     for(int i=0;i<[items count];i++){
-        NSInteger tstionAnimation = [items[0][@"transition_animation"] intValue];
+//        NSInteger tstionAnimation = [items[0][@"transition_animation"] intValue];
 
         if (i>0) {
-            frame = [self drawItem:items[i]  preItem:items[i-1] preFrame:frame index:i tstionAnimation:tstionAnimation tstionScale:self.clock];
+            frame = [self drawItem:items[i]  preItem:items[i-1] preFrame:frame index:i tstionScale:self.clock];
         }else{
-            frame = [self drawItem:items[i]  preItem:nil preFrame:frame index:i tstionAnimation:tstionAnimation tstionScale:self.clock];
+            frame = [self drawItem:items[i]  preItem:nil preFrame:frame index:i tstionScale:self.clock];
         }
         
     }
