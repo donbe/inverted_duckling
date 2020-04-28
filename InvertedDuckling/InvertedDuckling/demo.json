@@ -4,11 +4,11 @@
         "duration": 1,
         "text": "asdf大家好",
         "color": "ff00ff",
-        "transition_animation": 4,
+        "transition_animation": 1,
     },{
         "start_time": 0,
         "duration": 1,
-        "text": "Transition animation",
+        "text": "计算某一点绕另一点旋转一定",
         "color": "333333",
         "transition_animation": 4,
     },{
