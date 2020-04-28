@@ -33,6 +33,7 @@
     [self.view addSubview:self.iDuckling];
     
     self.iDuckling.data = [self testData];
+    self.iDuckling.cursor = 0;
     
 //    [self addButtonWith:@"开始" frame:CGRectMake(20, 530, 100, 50) action:@selector(triggerButtonAction)];
 //    [self addButtonWith:@"停止" frame:CGRectMake(140, 530, 100, 50) action:@selector(triggerButtonAction)];
@@ -42,8 +43,6 @@
     [self.slider addTarget:self action:@selector(sliderValueChange:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:self.slider];
     
-    
-    
 }
 
 -(void)triggerButtonAction{
@@ -51,8 +50,8 @@
 }
 
 -(void)sliderValueChange:(UISlider *)slider{
-    self.iDuckling.percent = slider.value;
-    [self.iDuckling setNeedsDisplay];
+    float value = slider.value * 6;
+    self.iDuckling.cursor = value;
     
 }
 

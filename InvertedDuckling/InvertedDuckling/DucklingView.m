@@ -12,6 +12,12 @@
 
 @interface DucklingView()
 
+// 真正需要绘制的数据集
+@property(nonatomic,strong)NSArray <DucklingModel *> *drawDatas;
+
+// 动画的中间过程值
+@property(nonatomic)float percent;
+
 @end
 
 
@@ -21,8 +27,14 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        //设置缩放因子默认值
+        // 设置缩放因子默认值
         self.scaleFactor = 1.5;
+        
+        // 设置最大宽度间隙默认值
+        self.padding = 150;
+        
+        // 设置默认绘制多少条文字
+        self.count = 12;
         
     }
     return self;
@@ -34,11 +46,12 @@
     // 移动原点到正中间
     CGContextTranslateCTM(UIGraphicsGetCurrentContext(), self.frame.size.width/2, self.frame.size.height/2 + self.originOffsety);
     
-    NSArray <DucklingModel *>*items = [self data];
+    NSArray <DucklingModel *>*items = self.drawDatas;
     CGRect frame = CGRectZero;
     
     float totalScale = 1;
 
+    
     for(int i=0;i<[items count];i++){
         
         if (i>0) {
@@ -55,12 +68,13 @@
             }else if (animation==4) {
                 totalScale /= self.scaleFactor;
             }
-        }else{
+        }else{// 第一行
             if (animation==3) {
-                totalScale = totalScale + (self.scaleFactor-1)*self.percent;
+                totalScale *= self.scaleFactor;
             }else if (animation==4) {
-                totalScale = totalScale - (self.scaleFactor-1)*self.percent;
+                totalScale /= self.scaleFactor;
             }
+            totalScale = 1 + (totalScale - 1) * self.percent;
         }
     }
 }
@@ -230,7 +244,7 @@
         angle = -M_PI_2;
         
         // 原点坐标
-        newOriginPoint.x = preFrame.origin.x - self.lineInterval - rect.size.height/2;
+        newOriginPoint.x = preFrame.origin.x - self.lineInterval;
         newOriginPoint.y = preFrame.origin.y + preFrame.size.height - rect.size.width/2;
         
     }else{// 右旋
@@ -238,7 +252,7 @@
         angle = M_PI_2;
         
         // 原点坐标
-        newOriginPoint.x = preFrame.origin.x + preFrame.size.width + self.lineInterval+rect.size.height/2;
+        newOriginPoint.x = preFrame.origin.x + preFrame.size.width + self.lineInterval;
         newOriginPoint.y = preFrame.origin.y + preFrame.size.height - rect.size.width/2;
     }
     
@@ -331,7 +345,38 @@
 
 
 #pragma mark -
+-(void)setCursor:(NSTimeInterval)cursor{
+    _cursor = cursor;
+    
+    if ([self.data count] == 0) {
+        return;
+    }
+    
+    // 符合条件的数据放入temp中
+    NSMutableArray *temp = [NSMutableArray new];
+    for (int i=0; i<[self.data count]; i++) {
+        DucklingModel *model = self.data[i];
+        if (model.startTime <= (int)(cursor * 1000)) {
+            [temp addObject:model];
+        }
+    }
+    
+    if ([temp count] == 0) {
+        return;
+    }
+    
+    //翻转数组
+    temp = [[[temp reverseObjectEnumerator] allObjects] mutableCopy];
+    
+    // 最多取12条
+    NSRange range = NSMakeRange(0, MIN([temp count],self.count));
+    self.drawDatas = [temp subarrayWithRange:range];
+    
+    DucklingModel *first = [self.drawDatas firstObject];
+    self.percent = MIN(1, MAX((cursor*1000 - first.startTime), 0) / first.duration);
 
+    [self setNeedsDisplay];
+}
 
 
 
@@ -343,14 +388,14 @@
                                          options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
                                       attributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:10] }
                                          context:nil];
-    CGFloat fontSize = floor(10 * ((self.frame.size.width - 150) / tempRect.size.width));
+    CGFloat fontSize = floor(10 * ((self.frame.size.width - self.padding) / tempRect.size.width));
     return fontSize;
 }
 
 
 /// 这个方法提出来，主要是为了加字的背景，方便调试
 -(void)drawText:(NSAttributedString *)text rect:(CGRect)rect{
-//    [DucklingView drawRectangle:rect];
+    [DucklingView drawRectangle:rect];
     [text drawAtPoint:CGPointMake(rect.origin.x, rect.origin.y)];
 }
 
