@@ -11,6 +11,7 @@
 
 //static CGFloat interval_x = 0;// 旋转后的横向间距
 static CGFloat interval_line = 0;// 上下两行的间距
+static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
 
 @interface DucklingView()
 
@@ -46,11 +47,15 @@ static CGFloat interval_line = 0;// 上下两行的间距
           preFrame:(CGRect)preFrame             //前一行字的frame
              index:(NSInteger)index             //当前第几行字
          tstionScale:(float)tstionScale         //处于转场百分比,值 0-1 之间
+        totalScale:(float)totalScale            //累加缩放
 {
     
     NSString *text = item[@"text"];
     NSString *color = item[@"color"];
     CGFloat fontSize = [self estimateFontSize:text];
+    
+    // 计算累加缩放
+    fontSize *= totalScale;
     
     // 终态计算
     NSDictionary* stringAttrs = @{
@@ -62,7 +67,6 @@ static CGFloat interval_line = 0;// 上下两行的间距
        options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
     attributes:stringAttrs
        context:nil];
-    
     
     
     // 处理上一行的动画效果，首行特殊处理
@@ -204,9 +208,45 @@ static CGFloat interval_line = 0;// 上下两行的间距
             
         }
             break;
+          
+        case 3:
+        case 4:{
+            if (index == 0) {
+                
+                // 重新计算首行中间态
+                fontSize *= tstionScale;
+                stringAttrs = @{
+                    NSFontAttributeName : [UIFont systemFontOfSize:fontSize],
+                    NSForegroundColorAttributeName : [UIColor colorFromHexAlphaString:color]
+                };
+                attrStr = [[NSAttributedString alloc] initWithString:text attributes:stringAttrs];
+                rect = [text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
+                   options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                attributes:stringAttrs
+                   context:nil];
+                
+                
+                // 计算顶点坐标
+                rect.origin.x = -rect.size.width/2;
+                rect.origin.y = preFrame.origin.y - rect.size.height;
+                
+                // 开始写字
+                [self drawText:attrStr rect:rect];
+                return rect;
+            }else{
+                // 计算顶点坐标
+                rect.origin.x = -rect.size.width/2;
+                rect.origin.y = preFrame.origin.y - interval_line - rect.size.height;
+                 
+                // 开始写字
+                [self drawText:attrStr rect:rect];
+                return rect;
+            }
+        }
             
         default:
         {
+            
             // 计算顶点坐标
             rect.origin.x = -rect.size.width/2;
             rect.origin.y = preFrame.origin.y - interval_line - rect.size.height;
@@ -233,17 +273,36 @@ static CGFloat interval_line = 0;// 上下两行的间距
     NSArray *items = [self testData];
     CGRect frame = CGRectZero;
     
+    
+    float totalScale = 1;
+    NSLog(@"---");
     for(int i=0;i<[items count];i++){
-//        NSInteger tstionAnimation = [items[0][@"transition_animation"] intValue];
-
+        
+        NSLog(@"totalScale = %f", totalScale);
+        
         if (i>0) {
-            frame = [self drawItem:items[i]  preItem:items[i-1] preFrame:frame index:i tstionScale:self.clock];
+            frame = [self drawItem:items[i]  preItem:items[i-1] preFrame:frame index:i tstionScale:self.clock totalScale:totalScale];
         }else{
-            frame = [self drawItem:items[i]  preItem:nil preFrame:frame index:i tstionScale:self.clock];
+            frame = [self drawItem:items[i]  preItem:nil preFrame:frame index:i tstionScale:self.clock totalScale:totalScale];
         }
         
+        // 计算累加的缩放比例
+        NSInteger animation = [items[i][@"transition_animation"] intValue];
+        if (i>0) {
+            if (animation==3) {
+                totalScale *= scaleFactor;
+            }else if (animation==4) {
+                totalScale /= scaleFactor;
+            }
+        }else{
+            if (animation==3) {
+                totalScale = totalScale + (scaleFactor-1)*self.clock;
+            }else if (animation==4) {
+                totalScale = totalScale - (scaleFactor-1)*self.clock;
+            }
+            
+        }
     }
-
 }
     
 
@@ -301,11 +360,14 @@ static CGFloat interval_line = 0;// 上下两行的间距
 - (void)drawRectangle:(CGRect)rect
 {
 
-    CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(),
-                             (arc4random() % 100) / 100.f,
-                             (arc4random() % 100) / 100.f,
-                             (arc4random() % 100) / 100.f,
-                             1.0);   //this is the transparent color
+//    CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(),
+//                             (arc4random() % 100) / 100.f,
+//                             (arc4random() % 100) / 100.f,
+//                             (arc4random() % 100) / 100.f,
+//                             1.0);
+    
+    CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(),0.8,0.8,0.8,1.0);
+    
     CGContextFillRect(UIGraphicsGetCurrentContext(), rect);
     
     //CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 0.0, 0.0, 0.0, 0.5);
