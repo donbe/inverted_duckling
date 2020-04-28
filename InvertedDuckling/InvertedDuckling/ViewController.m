@@ -51,7 +51,7 @@
 }
 
 -(void)sliderValueChange:(UISlider *)slider{
-    self.iDuckling.clock = slider.value;
+    self.iDuckling.percent = slider.value;
     [self.iDuckling setNeedsDisplay];
     
 }

@@ -8,8 +8,7 @@
 
 #import "DucklingView.h"
 
-static CGFloat interval_line = 0;// 上下两行的间距
-static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
+
 
 @interface DucklingView()
 
@@ -22,6 +21,9 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
     self = [super initWithFrame:frame];
     if (self) {
         
+        //设置缩放因子默认值
+        self.scaleFactor = 1.5;
+        
     }
     return self;
 }
@@ -30,7 +32,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
 -(void)drawRect:(CGRect)rect{
 
     // 移动原点到正中间
-    CGContextTranslateCTM(UIGraphicsGetCurrentContext(), self.frame.size.width/2, self.frame.size.height/2);
+    CGContextTranslateCTM(UIGraphicsGetCurrentContext(), self.frame.size.width/2, self.frame.size.height/2 + self.originOffsety);
     
     NSArray <DucklingModel *>*items = [self data];
     CGRect frame = CGRectZero;
@@ -40,24 +42,24 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
     for(int i=0;i<[items count];i++){
         
         if (i>0) {
-            frame = [self drawItem:items[i]  preItem:items[i-1] preFrame:frame index:i tstionScale:self.clock totalScale:totalScale];
+            frame = [self drawItem:items[i]  preItem:items[i-1] preFrame:frame index:i tstionScale:self.percent totalScale:totalScale];
         }else{
-            frame = [self drawItem:items[i]  preItem:nil preFrame:frame index:i tstionScale:self.clock totalScale:totalScale];
+            frame = [self drawItem:items[i]  preItem:nil preFrame:frame index:i tstionScale:self.percent totalScale:totalScale];
         }
         
         // 计算累加的缩放比例
         NSInteger animation = items[i].transitionAnimation;
         if (i>0) {
             if (animation==3) {
-                totalScale *= scaleFactor;
+                totalScale *= self.scaleFactor;
             }else if (animation==4) {
-                totalScale /= scaleFactor;
+                totalScale /= self.scaleFactor;
             }
         }else{
             if (animation==3) {
-                totalScale = totalScale + (scaleFactor-1)*self.clock;
+                totalScale = totalScale + (self.scaleFactor-1)*self.percent;
             }else if (animation==4) {
-                totalScale = totalScale - (scaleFactor-1)*self.clock;
+                totalScale = totalScale - (self.scaleFactor-1)*self.percent;
             }
         }
     }
@@ -134,7 +136,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
             }else{
                 // 计算顶点坐标
                 rect.origin.x = -rect.size.width/2;
-                rect.origin.y = preFrame.origin.y - interval_line - rect.size.height;
+                rect.origin.y = preFrame.origin.y - self.lineInterval - rect.size.height;
                  
                 // 开始写字
                 [self drawText:attrStr rect:rect];
@@ -147,7 +149,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
             
             // 计算顶点坐标
             rect.origin.x = -rect.size.width/2;
-            rect.origin.y = preFrame.origin.y - interval_line - rect.size.height;
+            rect.origin.y = preFrame.origin.y - self.lineInterval - rect.size.height;
              
             // 开始写字
             [self drawText:attrStr rect:rect];
@@ -204,7 +206,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
     
     // 计算顶点坐标
     rect.origin.x = -rect.size.width/2;
-    rect.origin.y = preFrame.origin.y - interval_line - rect.size.height;
+    rect.origin.y = preFrame.origin.y - self.lineInterval - rect.size.height;
     
     // 开始写字
     [self drawText:attrStr rect:rect];
@@ -228,7 +230,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
         angle = -M_PI_2;
         
         // 原点坐标
-        newOriginPoint.x = preFrame.origin.x - interval_line - rect.size.height/2;
+        newOriginPoint.x = preFrame.origin.x - self.lineInterval - rect.size.height/2;
         newOriginPoint.y = preFrame.origin.y + preFrame.size.height - rect.size.width/2;
         
     }else{// 右旋
@@ -236,7 +238,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
         angle = M_PI_2;
         
         // 原点坐标
-        newOriginPoint.x = preFrame.origin.x + preFrame.size.width + interval_line+rect.size.height/2;
+        newOriginPoint.x = preFrame.origin.x + preFrame.size.width + self.lineInterval+rect.size.height/2;
         newOriginPoint.y = preFrame.origin.y + preFrame.size.height - rect.size.width/2;
     }
     
@@ -251,7 +253,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
     
     // 计算顶点坐标
     rect.origin.x = -rect.size.width/2;
-    rect.origin.y = - interval_line - rect.size.height;
+    rect.origin.y = - self.lineInterval - rect.size.height;
     
     // 开始写字
     [self drawText:attrStr rect:rect];
@@ -273,7 +275,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
         angle = -M_PI_2;
         
         // 原点坐标
-        newOriginPoint.x = preFrame.origin.x - interval_line ;
+        newOriginPoint.x = preFrame.origin.x - self.lineInterval ;
         newOriginPoint.y = preFrame.origin.y + preFrame.size.height - rect.size.width/2;
         
     }else{// 右旋
@@ -282,7 +284,7 @@ static CGFloat scaleFactor = 1.3;// 转场动画的放大缩小比例
         angle = M_PI_2;
         
         // 原点坐标
-        newOriginPoint.x = preFrame.size.width/2 + interval_line;
+        newOriginPoint.x = preFrame.size.width/2 + self.lineInterval;
         newOriginPoint.y = preFrame.origin.y + preFrame.size.height - rect.size.width/2;
     }
     
