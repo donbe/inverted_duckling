@@ -81,13 +81,20 @@
 
 #pragma mark - 主要的绘图函数
 
-// 绘制一帧中的某一行
--(CGRect )drawItem:(DucklingModel *)item         // 当前行属性
-           preItem:(DucklingModel *)preItem      // 前一行字的属性，这一行影响了当前行的位置
-          preFrame:(CGRect)preFrame             // 前一行字的frame
-             index:(NSInteger)index             // 当前第几行字
-         tstionScale:(float)tstionScale         // 处于转场百分比,值 0-1 之间
-        totalScale:(float)totalScale            // 累加缩放
+/// 绘制一帧中的某一行
+/// @param item                              当前行属性
+/// @param preItem                       前一行字的属性，这一行影响了当前行的位置
+/// @param preFrame                     前一行字的frame
+/// @param index                            当前第几行字
+/// @param tstionScale              处于转场百分比,值, 介于0-1 之间
+/// @param totalScale                累加缩放
+/// @return                 返回最终确定的本行字的frame
+-(CGRect )drawItem:(DucklingModel *)item
+           preItem:(DucklingModel *)preItem
+          preFrame:(CGRect)preFrame
+             index:(NSInteger)index
+         tstionScale:(float)tstionScale
+        totalScale:(float)totalScale
 {
     
     NSString *text = item.text;
@@ -180,6 +187,7 @@
 /// @param rect                            当前行字的frame
 /// @param text                            当前行文本
 /// @param tstionScale            旋转的中间状态百分比
+/// @return                返回最终确定的本行字的frame
 - (CGRect)rotateFirstLine:(NSString *)text color:(NSString *)color fontSize:(CGFloat)fontSize preAnimation:(NSInteger)preAnimation preFrame:(const CGRect )preFrame rect:(CGRect)rect tstionScale:(float)tstionScale {
     
     // 计算透明度的中间态
@@ -244,7 +252,7 @@
 /// @param preFrame                 上一行字的frame
 /// @param rect                          本行字的frame
 /// @param tstionScale          旋转的中间状态百分比
-/// @return 返回最终确定的本行字的frame
+/// @return                返回最终确定的本行字的frame
 - (CGRect)rotateOtherLine:(NSAttributedString *)attrStr preAnimation:(NSInteger)preAnimation preFrame:(const CGRect )preFrame rect:(CGRect )rect tstionScale:(float)tstionScale {
     
     // 计算原点最终的点和字角度旋转
@@ -289,7 +297,14 @@
 
 
 
-// 缩放第一行
+
+/// 缩放第一行
+/// @param text                      缩放的文字
+/// @param color                    颜色
+/// @param fontSize             字体
+/// @param preFrame             前一行frame
+/// @param tstionScale      旋转的中间状态百分比
+/// @return              返回最终确定的本行字的frame
 - (CGRect)scaleFirstLine:(NSString *)text color:(NSString *)color fontSize:(CGFloat )fontSize preFrame:(const CGRect )preFrame tstionScale:(float)tstionScale {
     
     // 重新计算首行中间态
