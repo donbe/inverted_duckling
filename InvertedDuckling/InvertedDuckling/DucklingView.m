@@ -9,7 +9,6 @@
 #import "DucklingView.h"
 
 
-
 @interface DucklingView()
 
 // 真正需要绘制的数据集
@@ -307,10 +306,11 @@
 /// @return              返回最终确定的本行字的frame
 - (CGRect)scaleFirstLine:(NSString *)text color:(NSString *)color fontSize:(CGFloat )fontSize preFrame:(const CGRect )preFrame tstionScale:(float)tstionScale {
     
-    // 重新计算首行中间态
-    fontSize *= tstionScale;
+    
+    //计算弹簧效果中间态
+    float easeFontSize = fontSize * [DucklingView elasticEaseOut:tstionScale];
     NSDictionary *stringAttrs = @{
-        NSFontAttributeName : [UIFont systemFontOfSize:fontSize],
+        NSFontAttributeName : [UIFont systemFontOfSize:easeFontSize],
         NSForegroundColorAttributeName : [UIColor colorFromHexAlphaString:color]
     };
     NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString:text attributes:stringAttrs];
@@ -318,14 +318,28 @@
                                options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
                             attributes:stringAttrs
                                context:nil];
-    
-    
     // 计算顶点坐标
     rect.origin.x = -rect.size.width/2;
     rect.origin.y = preFrame.origin.y - rect.size.height;
     
     // 开始写字
     [self drawText:attrStr rect:rect];
+    
+    
+    // 重新计算没有弹簧效果的首行中间态,给下一行使用
+    fontSize *= tstionScale;
+    stringAttrs = @{
+        NSFontAttributeName : [UIFont systemFontOfSize:fontSize]
+    };
+    attrStr = [[NSAttributedString alloc] initWithString:text attributes:stringAttrs];
+    rect = [text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
+                               options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                            attributes:stringAttrs
+                               context:nil];
+    
+    // 计算顶点坐标
+    rect.origin.x = -rect.size.width/2;
+    rect.origin.y = preFrame.origin.y - rect.size.height;
     
     return rect;
 }
@@ -422,6 +436,38 @@
     //CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 0.0, 0.0, 0.0, 0.5);
     //CGContextStrokeRect(UIGraphicsGetCurrentContext(), rect);    //this will draw the border
 
+}
+
+#pragma mark - 弹簧动画函数
++(float)backEaseOut:(float) p
+{
+    float f = (1 - p);
+    return 1 - (f * f * f - f * sin(f * M_PI));
+}
+
++(float)bounceEaseOut:(float) p
+{
+    if(p < 4/11.0)
+    {
+        return (121 * p * p)/16.0;
+    }
+    else if(p < 8/11.0)
+    {
+        return (363/40.0 * p * p) - (99/10.0 * p) + 17/5.0;
+    }
+    else if(p < 9/10.0)
+    {
+        return (4356/361.0 * p * p) - (35442/1805.0 * p) + 16061/1805.0;
+    }
+    else
+    {
+        return (54/5.0 * p * p) - (513/25.0 * p) + 268/25.0;
+    }
+}
+
++(float)elasticEaseOut:(float) p
+{
+    return sin(-13 * M_PI_2 * (p + 1)) * pow(2, -10 * p) + 1;
 }
 
 @end
