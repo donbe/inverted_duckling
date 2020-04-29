@@ -9,6 +9,18 @@
 #import "DucklingView.h"
 
 
+/// 利用贝塞尔曲线做弹簧动画
+/// 参考网站：
+/// http://www.flong.com/texts/code/shapers_bez/
+/// https://cubic-bezier.com/
+/// @param x 输入值x
+/// @param a 控制点1 x坐标
+/// @param b 控制点1 y坐标
+/// @param c 控制点2 x坐标
+/// @param d 控制点2 y坐标
+float cubicBezier (float x, float a, float b, float c, float d);
+
+
 @interface DucklingView()
 
 // 真正需要绘制的数据集
@@ -308,7 +320,7 @@
     
     
     //计算弹簧效果中间态
-    float easeFontSize = fontSize * [DucklingView elasticEaseOut:tstionScale];
+    float easeFontSize = fontSize * [DucklingView cubicBezier:tstionScale];
     NSDictionary *stringAttrs = @{
         NSFontAttributeName : [UIFont systemFontOfSize:easeFontSize],
         NSForegroundColorAttributeName : [UIColor colorFromHexAlphaString:color]
@@ -438,12 +450,13 @@
 
 }
 
-#pragma mark - 弹簧动画函数
+#pragma mark - Easing functions
 +(float)backEaseOut:(float) p
 {
     float f = (1 - p);
     return 1 - (f * f * f - f * sin(f * M_PI));
 }
+
 
 +(float)bounceEaseOut:(float) p
 {
@@ -470,4 +483,64 @@
     return sin(-13 * M_PI_2 * (p + 1)) * pow(2, -10 * p) + 1;
 }
 
++(float)cubicBezier:(float) p
+{
+    return cubicBezier(p,0.24,0.24,0.8,1.5);
+}
+
 @end
+
+
+#pragma mark - Cubic Bezier
+float slopeFromT (float t, float A, float B, float C){
+  float dtdx = 1.0/(3.0*A*t*t + 2.0*B*t + C);
+  return dtdx;
+}
+
+
+float xFromT (float t, float A, float B, float C, float D){
+  float x = A*(t*t*t) + B*(t*t) + C*t + D;
+  return x;
+}
+
+float yFromT (float t, float E, float F, float G, float H){
+  float y = E*(t*t*t) + F*(t*t) + G*t + H;
+  return y;
+}
+
+float cubicBezier (float x, float a, float b, float c, float d){
+
+  float y0a = 0.00; // initial y
+  float x0a = 0.00; // initial x
+  float y1a = b;    // 1st influence y
+  float x1a = a;    // 1st influence x
+  float y2a = d;    // 2nd influence y
+  float x2a = c;    // 2nd influence x
+  float y3a = 1.00; // final y
+  float x3a = 1.00; // final x
+
+  float A =   x3a - 3*x2a + 3*x1a - x0a;
+  float B = 3*x2a - 6*x1a + 3*x0a;
+  float C = 3*x1a - 3*x0a;
+  float D =   x0a;
+
+  float E =   y3a - 3*y2a + 3*y1a - y0a;
+  float F = 3*y2a - 6*y1a + 3*y0a;
+  float G = 3*y1a - 3*y0a;
+  float H =   y0a;
+
+  // Solve for t given x (using Newton-Raphelson), then solve for y given t.
+  // Assume for the first guess that t = x.
+  float currentt = x;
+  int nRefinementIterations = 5;
+  for (int i=0; i < nRefinementIterations; i++){
+    float currentx = xFromT (currentt, A,B,C,D);
+    float currentslope = slopeFromT (currentt, A,B,C);
+    currentt -= (currentx - x)*(currentslope);
+    currentt = MAX(0, MIN(1, currentt));
+  }
+
+  float y = yFromT (currentt,  E,F,G,H);
+  return y;
+}
+
