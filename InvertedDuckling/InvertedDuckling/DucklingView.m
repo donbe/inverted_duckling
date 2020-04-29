@@ -485,7 +485,7 @@ float cubicBezier (float x, float a, float b, float c, float d);
 
 +(float)cubicBezier:(float) p
 {
-    return cubicBezier(p,0.24,0.24,0.8,1.5);
+    return cubicBezier(p,0.24,0.24,0.8,1.3);
 }
 
 @end
