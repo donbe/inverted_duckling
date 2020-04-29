@@ -38,6 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 // 转场动画的放大缩小比例, 默认1.5倍
 @property(nonatomic)float scaleFactor;
 
+// 设置最大字号,默认50
+@property(nonatomic)float maxFontSize;
 
 @end
 

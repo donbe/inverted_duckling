@@ -14,8 +14,8 @@
             filePath = "InvertedDuckling/DucklingView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
             landmarkName = "-rotateOtherLine:preAnimation:preFrame:rect:tstionScale:"
             landmarkType = "7">
          </BreakpointContent>

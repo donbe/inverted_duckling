@@ -47,6 +47,9 @@ float cubicBezier (float x, float a, float b, float c, float d);
         // 设置默认绘制多少条文字
         self.count = 12;
         
+        // 设置默认最大字号
+        self.maxFontSize = 40;
+        
     }
     return self;
 }
@@ -402,7 +405,7 @@ float cubicBezier (float x, float a, float b, float c, float d);
                                       attributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:10] }
                                          context:nil];
     CGFloat fontSize = floor(10 * ((self.frame.size.width - self.padding) / tempRect.size.width));
-    return fontSize;
+    return MIN(fontSize, self.maxFontSize);
 }
 
 
