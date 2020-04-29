@@ -382,7 +382,7 @@
 
 /// 这个方法提出来，主要是为了加字的背景，方便调试
 -(void)drawText:(NSAttributedString *)text rect:(CGRect)rect{
-    [DucklingView drawRectangle:rect];
+//    [DucklingView drawRectangle:rect];
     [text drawAtPoint:CGPointMake(rect.origin.x, rect.origin.y)];
 }
 
