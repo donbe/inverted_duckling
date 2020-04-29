@@ -4,24 +4,24 @@
         "duration": 250,
         "text": "asdf大家好",
         "color": "ff00ff",
-        "transition_animation": 3,
+        "transition_type": 3,
     },{
         "start_time": 1000,
         "duration": 250,
         "text": "计算某一点绕另一点旋转一定",
         "color": "333333",
-        "transition_animation": 4,
+        "transition_type": 4,
     },{
         "start_time": 2000,
         "duration": 250,
         "text": "asdfasdf",
         "color": "333333",
-        "transition_animation": 2,
+        "transition_type": 2,
     },{
         "start_time": 3000,
         "duration": 250,
         "text": "2121212112234234",
         "color": "333333",
-        "transition_animation": 3,
+        "transition_type": 3,
     }
 ]

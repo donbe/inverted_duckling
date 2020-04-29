@@ -61,17 +61,17 @@
         }
         
         // 计算累加的缩放比例
-        NSInteger animation = items[i].transitionAnimation;
+        DMTransitionType animation = items[i].transitionType;
         if (i>0) {
-            if (animation==3) {
+            if (animation == DMTransitionTypeZoomIn) {
                 totalScale *= self.scaleFactor;
-            }else if (animation==4) {
+            }else if (animation == DMTransitionTypeZoomOut) {
                 totalScale /= self.scaleFactor;
             }
         }else{// 第一行
-            if (animation==3) {
+            if (animation == DMTransitionTypeZoomIn) {
                 totalScale *= self.scaleFactor;
-            }else if (animation==4) {
+            }else if (animation == DMTransitionTypeZoomOut) {
                 totalScale /= self.scaleFactor;
             }
             totalScale = 1 + (totalScale - 1) * self.percent;
@@ -117,13 +117,13 @@
     
     
     // 处理受上一行的转场动画影响到当前行
-    NSInteger preAnimation = preItem.transitionAnimation;
+    DMTransitionType preAnimation = preItem.transitionType;
     // 首行特殊处理
-    if (index == 0) preAnimation = item.transitionAnimation;
+    if (index == 0) preAnimation = item.transitionType;
     
     switch (preAnimation) {
-        case 1:
-        case 2: {
+        case DMTransitionTypeRotateLeft:
+        case DMTransitionTypeRotateRight: {
             if (index == 0){
                 // 旋转第一行
                 rect = [self rotateFirstLine:text
@@ -145,8 +145,8 @@
         }
             break;
           
-        case 3: // 缩放转场
-        case 4:{
+        case DMTransitionTypeZoomIn: // 缩放转场
+        case DMTransitionTypeZoomOut:{
             if (index == 0) {
                 
                 // 缩放第一行
@@ -368,7 +368,7 @@
 
 
 #pragma mark - help
-/// 按照10号字体来预估，应该展示的字号，预估宽度为view的宽度-100
+/// 按照10号字体来预估，应该展示的字号，预估宽度为view的宽度 - self.padding
 /// @param text 需要预估的文本
 - (CGFloat)estimateFontSize:(NSString *)text {
     CGRect tempRect = [text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
