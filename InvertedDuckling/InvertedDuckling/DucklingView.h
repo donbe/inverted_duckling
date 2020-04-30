@@ -41,6 +41,9 @@ NS_ASSUME_NONNULL_BEGIN
 // 设置最大字号,默认40
 @property(nonatomic)float maxFontSize;
 
+// 设置默认字体，默认PingFangSC-Regular
+@property(nonatomic,strong)NSString *font;
+
 @end
 
 NS_ASSUME_NONNULL_END

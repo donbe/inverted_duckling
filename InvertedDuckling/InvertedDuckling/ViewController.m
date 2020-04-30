@@ -23,8 +23,18 @@
 
 @implementation ViewController
 
+
+//可用自定义字体
+//ZhenyanGB-Regular
+//xiaowei
+//PangMenZhengDao
+//HappyZcool-2016
+//SourceHanSansCN-Bold
+//SourceHanSerif-Heavy
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
 
     self.iDuckling = [[DucklingView alloc] initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.width)];

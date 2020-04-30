@@ -20,6 +20,15 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>庞门正道体.ttf</string>
+		<string>思源宋体.ttc</string>
+		<string>思源黑体.otf</string>
+		<string>站酷小薇LOGO体.otf</string>
+		<string>站酷快乐体2016修订版.ttf</string>
+		<string>锐字真言体.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

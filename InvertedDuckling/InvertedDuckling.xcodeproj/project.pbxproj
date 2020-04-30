@@ -21,6 +21,12 @@
 		36C8EC57245586B600CB20B0 /* UIColor+DD.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C8EC56245586B600CB20B0 /* UIColor+DD.m */; };
 		36C8EC5D2458284C00CB20B0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C8EC5C2458284C00CB20B0 /* SystemConfiguration.framework */; };
 		36C8EC6624582C6800CB20B0 /* DucklingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C8EC6524582C6800CB20B0 /* DucklingModel.m */; };
+		36C8EC7A245ABED800CB20B0 /* 思源宋体.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 36C8EC74245ABED700CB20B0 /* 思源宋体.ttc */; };
+		36C8EC7B245ABED800CB20B0 /* 锐字真言体.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36C8EC75245ABED700CB20B0 /* 锐字真言体.ttf */; };
+		36C8EC7C245ABED800CB20B0 /* 思源黑体.otf in Resources */ = {isa = PBXBuildFile; fileRef = 36C8EC76245ABED700CB20B0 /* 思源黑体.otf */; };
+		36C8EC7D245ABED800CB20B0 /* 站酷小薇LOGO体.otf in Resources */ = {isa = PBXBuildFile; fileRef = 36C8EC77245ABED800CB20B0 /* 站酷小薇LOGO体.otf */; };
+		36C8EC7E245ABED800CB20B0 /* 庞门正道体.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36C8EC78245ABED800CB20B0 /* 庞门正道体.ttf */; };
+		36C8EC7F245ABED800CB20B0 /* 站酷快乐体2016修订版.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36C8EC79245ABED800CB20B0 /* 站酷快乐体2016修订版.ttf */; };
 		41D8A117369F261DCFD58309 /* Pods_InvertedDuckling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC175773BA0494B40C0016E /* Pods_InvertedDuckling.framework */; };
 		66749D96F5EC58BBC06E5D62 /* Pods_InvertedDuckling_InvertedDucklingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F15ECA452DACACEB6BFF749B /* Pods_InvertedDuckling_InvertedDucklingUITests.framework */; };
 		FF8CF25039ACF17E2EDF58B8 /* Pods_InvertedDucklingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7ED156128A50980D11ABA79 /* Pods_InvertedDucklingTests.framework */; };
@@ -72,6 +78,12 @@
 		36C8EC5C2458284C00CB20B0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		36C8EC6424582C6800CB20B0 /* DucklingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DucklingModel.h; sourceTree = "<group>"; };
 		36C8EC6524582C6800CB20B0 /* DucklingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DucklingModel.m; sourceTree = "<group>"; };
+		36C8EC74245ABED700CB20B0 /* 思源宋体.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "思源宋体.ttc"; sourceTree = "<group>"; };
+		36C8EC75245ABED700CB20B0 /* 锐字真言体.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "锐字真言体.ttf"; sourceTree = "<group>"; };
+		36C8EC76245ABED700CB20B0 /* 思源黑体.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "思源黑体.otf"; sourceTree = "<group>"; };
+		36C8EC77245ABED800CB20B0 /* 站酷小薇LOGO体.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "站酷小薇LOGO体.otf"; sourceTree = "<group>"; };
+		36C8EC78245ABED800CB20B0 /* 庞门正道体.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "庞门正道体.ttf"; sourceTree = "<group>"; };
+		36C8EC79245ABED800CB20B0 /* 站酷快乐体2016修订版.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "站酷快乐体2016修订版.ttf"; sourceTree = "<group>"; };
 		6265E0BFC227FFA211C91716 /* Pods-InvertedDuckling-InvertedDucklingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InvertedDuckling-InvertedDucklingUITests.release.xcconfig"; path = "Target Support Files/Pods-InvertedDuckling-InvertedDucklingUITests/Pods-InvertedDuckling-InvertedDucklingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		626C6287F428503D534BD9A6 /* Pods-InvertedDucklingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InvertedDucklingTests.release.xcconfig"; path = "Target Support Files/Pods-InvertedDucklingTests/Pods-InvertedDucklingTests.release.xcconfig"; sourceTree = "<group>"; };
 		79BE51A013E64CE732927D13 /* Pods-InvertedDuckling.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InvertedDuckling.release.xcconfig"; path = "Target Support Files/Pods-InvertedDuckling/Pods-InvertedDuckling.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +160,12 @@
 				36C8EC1C2451741800CB20B0 /* AppDelegate.m */,
 				36C8EC1E2451741800CB20B0 /* SceneDelegate.h */,
 				36C8EC1F2451741800CB20B0 /* SceneDelegate.m */,
+				36C8EC78245ABED800CB20B0 /* 庞门正道体.ttf */,
+				36C8EC74245ABED700CB20B0 /* 思源宋体.ttc */,
+				36C8EC76245ABED700CB20B0 /* 思源黑体.otf */,
+				36C8EC77245ABED800CB20B0 /* 站酷小薇LOGO体.otf */,
+				36C8EC79245ABED800CB20B0 /* 站酷快乐体2016修订版.ttf */,
+				36C8EC75245ABED700CB20B0 /* 锐字真言体.ttf */,
 				36C8EC242451741800CB20B0 /* Main.storyboard */,
 				36C8EC272451741C00CB20B0 /* Assets.xcassets */,
 				36C8EC292451741C00CB20B0 /* LaunchScreen.storyboard */,
@@ -311,7 +329,13 @@
 			files = (
 				36C8EC2B2451741C00CB20B0 /* LaunchScreen.storyboard in Resources */,
 				36C8EC282451741C00CB20B0 /* Assets.xcassets in Resources */,
+				36C8EC7B245ABED800CB20B0 /* 锐字真言体.ttf in Resources */,
+				36C8EC7E245ABED800CB20B0 /* 庞门正道体.ttf in Resources */,
+				36C8EC7C245ABED800CB20B0 /* 思源黑体.otf in Resources */,
 				36C8EC5424557C9400CB20B0 /* demo.json in Resources */,
+				36C8EC7A245ABED800CB20B0 /* 思源宋体.ttc in Resources */,
+				36C8EC7F245ABED800CB20B0 /* 站酷快乐体2016修订版.ttf in Resources */,
+				36C8EC7D245ABED800CB20B0 /* 站酷小薇LOGO体.otf in Resources */,
 				36C8EC262451741800CB20B0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

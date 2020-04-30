@@ -50,6 +50,9 @@ float cubicBezier (float x, float a, float b, float c, float d);
         // 设置默认最大字号
         self.maxFontSize = 40;
         
+        // 设置默认字体
+        self.font = @"PingFangSC-Regular";
+        
     }
     return self;
 }
@@ -113,14 +116,17 @@ float cubicBezier (float x, float a, float b, float c, float d);
     
     NSString *text = item.text;
     NSString *color = item.color;
+    if (!item.font) {
+        item.font = self.font;
+    }
     
     // 预估字体大小
-    CGFloat fontSize = [self estimateFontSize:text];
+    CGFloat fontSize = [self estimateFontSize:text font:item.font];
     fontSize *= totalScale; // 计算累加缩放
     
     // 终态计算
     NSDictionary* stringAttrs = @{
-        NSFontAttributeName : [UIFont systemFontOfSize:fontSize],
+        NSFontAttributeName : [UIFont fontWithName:item.font size:fontSize],
         NSForegroundColorAttributeName : [UIColor colorFromHexAlphaString:color]
     };
     NSAttributedString* attrStr = [[NSAttributedString alloc] initWithString:text attributes:stringAttrs];
@@ -142,6 +148,7 @@ float cubicBezier (float x, float a, float b, float c, float d);
                 // 旋转第一行
                 rect = [self rotateFirstLine:text
                                        color:color
+                                        font:item.font
                                     fontSize:fontSize
                                 preAnimation:preAnimation
                                     preFrame:preFrame
@@ -164,7 +171,7 @@ float cubicBezier (float x, float a, float b, float c, float d);
             if (index == 0) {
                 
                 // 缩放第一行
-                rect = [self scaleFirstLine:text color:color fontSize:fontSize preFrame:preFrame tstionScale:tstionScale];
+                rect = [self scaleFirstLine:text color:color font:item.font fontSize:fontSize preFrame:preFrame tstionScale:tstionScale];
                 
             }else{
                 // 计算顶点坐标
@@ -202,11 +209,11 @@ float cubicBezier (float x, float a, float b, float c, float d);
 /// @param text                            当前行文本
 /// @param tstionScale            旋转的中间状态百分比
 /// @return                返回最终确定的本行字的frame
-- (CGRect)rotateFirstLine:(NSString *)text color:(NSString *)color fontSize:(CGFloat)fontSize preAnimation:(NSInteger)preAnimation preFrame:(const CGRect )preFrame rect:(CGRect)rect tstionScale:(float)tstionScale {
+- (CGRect)rotateFirstLine:(NSString *)text color:(NSString *)color font:(NSString *)font fontSize:(CGFloat)fontSize preAnimation:(NSInteger)preAnimation preFrame:(const CGRect )preFrame rect:(CGRect)rect tstionScale:(float)tstionScale {
     
     // 计算透明度的中间态
     NSDictionary *stringAttrs = @{
-        NSFontAttributeName : [UIFont systemFontOfSize:fontSize],
+        NSFontAttributeName : [UIFont fontWithName:font size:fontSize],
         NSForegroundColorAttributeName : [[UIColor colorFromHexAlphaString:color] colorWithAlphaComponent:tstionScale]
     };
     NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString:text attributes:stringAttrs];
@@ -319,13 +326,13 @@ float cubicBezier (float x, float a, float b, float c, float d);
 /// @param preFrame             前一行frame
 /// @param tstionScale      旋转的中间状态百分比
 /// @return              返回最终确定的本行字的frame
-- (CGRect)scaleFirstLine:(NSString *)text color:(NSString *)color fontSize:(CGFloat )fontSize preFrame:(const CGRect )preFrame tstionScale:(float)tstionScale {
+- (CGRect)scaleFirstLine:(NSString *)text color:(NSString *)color font:(NSString *)font fontSize:(CGFloat )fontSize preFrame:(const CGRect )preFrame tstionScale:(float)tstionScale {
     
     
     //计算弹簧效果中间态
     float easeFontSize = fontSize * [DucklingView cubicBezier:tstionScale];
     NSDictionary *stringAttrs = @{
-        NSFontAttributeName : [UIFont systemFontOfSize:easeFontSize],
+        NSFontAttributeName : [UIFont fontWithName:font size:easeFontSize],
         NSForegroundColorAttributeName : [UIColor colorFromHexAlphaString:color]
     };
     NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString:text attributes:stringAttrs];
@@ -344,7 +351,7 @@ float cubicBezier (float x, float a, float b, float c, float d);
     // 重新计算没有弹簧效果的首行中间态,给下一行使用
     fontSize = fontSize * MIN([DucklingView cubicBezier:tstionScale], 1);
     stringAttrs = @{
-        NSFontAttributeName : [UIFont systemFontOfSize:fontSize]
+        NSFontAttributeName : [UIFont fontWithName:font size:fontSize]
     };
     attrStr = [[NSAttributedString alloc] initWithString:text attributes:stringAttrs];
     rect = [text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
@@ -399,10 +406,11 @@ float cubicBezier (float x, float a, float b, float c, float d);
 #pragma mark - help
 /// 按照10号字体来预估，应该展示的字号，预估宽度为view的宽度 - self.padding
 /// @param text 需要预估的文本
-- (CGFloat)estimateFontSize:(NSString *)text {
+- (CGFloat)estimateFontSize:(NSString *)text font:(NSString *)font{
+    
     CGRect tempRect = [text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
                                          options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-                                      attributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:10] }
+                                      attributes:@{ NSFontAttributeName : [UIFont fontWithName:font size:10] }
                                          context:nil];
     CGFloat fontSize = floor(10 * ((self.frame.size.width - self.padding) / tempRect.size.width));
     return MIN(fontSize, self.maxFontSize);
