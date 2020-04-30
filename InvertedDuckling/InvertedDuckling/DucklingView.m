@@ -342,7 +342,7 @@ float cubicBezier (float x, float a, float b, float c, float d);
     
     
     // 重新计算没有弹簧效果的首行中间态,给下一行使用
-    fontSize *= tstionScale;
+    fontSize = fontSize * MIN([DucklingView cubicBezier:tstionScale], 1);
     stringAttrs = @{
         NSFontAttributeName : [UIFont systemFontOfSize:fontSize]
     };
@@ -488,7 +488,7 @@ float cubicBezier (float x, float a, float b, float c, float d);
 
 +(float)cubicBezier:(float) p
 {
-    return cubicBezier(p,0.24,0.24,0.8,1.3);
+    return cubicBezier(p,0.24,0.24,0.8,1.4);
 }
 
 @end
