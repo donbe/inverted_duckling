@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 上下两行的间距，默认0
 @property(nonatomic)float lineInterval;
 
-// 字的最大宽度到视图两次的间隙,默认150
+// 字的最大宽度到视图两侧的间隙,默认150
 @property(nonatomic)float padding;
 
 // 转场动画的放大缩小比例, 默认1.5倍
