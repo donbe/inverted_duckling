@@ -71,7 +71,7 @@
 }
 
 -(void)sliderValueChange:(UISlider *)slider{
-    float value = slider.value * 6;
+    float value = slider.value * 30;
     self.iDuckling.cursor = value;
 }
 

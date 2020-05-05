@@ -60,7 +60,7 @@
         "duration": 250,
         "font": "ZhenyanGB-Regular",
         "color": "333333",
-        "transition_type": 2,
+        "transition_type": 1,
     },{
         "text": "一些植物",
         "start_time": 18000,
