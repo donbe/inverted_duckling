@@ -4,6 +4,9 @@
 
 ### Advantage
 
+ * Frame-by-frame animation
+ * Can play back as well as forward
+ * Script configuration available
  * Easy to use
  * Flexible configuration
  * Superior performance
