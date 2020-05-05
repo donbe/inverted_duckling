@@ -1,6 +1,6 @@
 # DucklingView
 
-<img src="https://github.com/donbe/inverted_duckling/blob/master/ducklingview.gif" alt="drawing" width="200"/>
+<img src="https://github.com/donbe/inverted_duckling/blob/master/ducklingview.gif" alt="drawing" width="300"/>
 
 倒鸭子字幕特效
 
@@ -11,8 +11,13 @@
 
 ### How to use
 
- * Import DucklingView.h DucklingView.m DucklingModel.h DucklingModel.m
- 
+Import 4 files, and dependent on [jsonmodel](https://github.com/jsonmodel/jsonmodel)
+ * DucklingView.h 
+ * DucklingView.m
+ * DucklingModel.h 
+ * DucklingModel.m 
+
+
  and use like this:
 ```
     // 创建
