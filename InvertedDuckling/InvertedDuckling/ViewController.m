@@ -43,6 +43,7 @@
     
     self.iDuckling.data = [self testData];
     self.iDuckling.cursor = 0;
+    self.iDuckling.originOffsety = 80;
     
     [self addButtonWith:@"开始" frame:CGRectMake(20, 630, 100, 50) action:@selector(startAction)];
     [self addButtonWith:@"停止" frame:CGRectMake(140, 630, 100, 50) action:@selector(stopAction)];
