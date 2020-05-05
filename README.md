@@ -1,6 +1,6 @@
 # DucklingView
 
-![image](http://donbe.oss-cn-hangzhou.aliyuncs.com/ducklingview.gif)
+![image](https://github.com/donbe/inverted_duckling/blob/master/ducklingview.gif)
 
 倒鸭子字幕特效
 
