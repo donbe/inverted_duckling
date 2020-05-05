@@ -1,8 +1,8 @@
-# DucklingView
+# DucklingView（倒鸭子字幕特效）
 
 <img src="https://github.com/donbe/inverted_duckling/blob/master/ducklingview.gif" alt="drawing" width="300"/>
 
-倒鸭子字幕特效
+### Advantage
 
  * Easy to use
  * Flexible configuration
