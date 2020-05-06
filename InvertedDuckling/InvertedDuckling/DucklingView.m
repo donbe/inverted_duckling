@@ -9,6 +9,8 @@
 #import "DucklingView.h"
 
 
+static NSString *defaultFont = @"PingFangSC-Regular";
+
 /// 利用贝塞尔曲线做弹簧动画
 /// 参考网站：
 /// http://www.flong.com/texts/code/shapers_bez/
@@ -51,7 +53,7 @@ float cubicBezier (float x, float a, float b, float c, float d);
         self.maxFontSize = 40;
         
         // 设置默认字体
-        self.font = @"PingFangSC-Regular";
+        self.font = defaultFont;
         
     }
     return self;
@@ -119,6 +121,11 @@ float cubicBezier (float x, float a, float b, float c, float d);
     if (!item.font) {
         item.font = self.font;
     }
+    
+
+    // 检查字体是否存在
+    UIFont *f = [UIFont fontWithName:item.font size:10];
+    if (f==nil) item.font = defaultFont;
     
     // 预估字体大小
     CGFloat fontSize = [self estimateFontSize:text font:item.font];
