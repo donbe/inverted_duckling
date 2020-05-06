@@ -1,9 +1,12 @@
-# DucklingView
+# DucklingView（倒鸭子字幕特效）
 
-![image](https://github.com/donbe/inverted_duckling/blob/master/ducklingview.gif =150x)
+<img src="https://github.com/donbe/inverted_duckling/blob/master/ducklingview.gif" alt="drawing" width="300"/>
 
-倒鸭子字幕特效
+### Advantage
 
+ * Frame-by-frame animation
+ * Can play back as well as forward
+ * Script configuration available
  * Easy to use
  * Flexible configuration
  * Superior performance
@@ -11,8 +14,13 @@
 
 ### How to use
 
- * Import DucklingView.h DucklingView.m DucklingModel.h DucklingModel.m
- 
+Import 4 files, and dependent on [jsonmodel](https://github.com/jsonmodel/jsonmodel)
+ * DucklingView.h 
+ * DucklingView.m
+ * DucklingModel.h 
+ * DucklingModel.m 
+
+
  and use like this:
 ```
     // 创建
