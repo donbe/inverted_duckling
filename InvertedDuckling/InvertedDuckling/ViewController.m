@@ -41,7 +41,13 @@
     self.iDuckling.backgroundColor = [UIColor colorFromHexAlphaString:@"f1f1f1"];
     [self.view addSubview:self.iDuckling];
     
-    self.iDuckling.data = [self testData];
+//    self.iDuckling.data = [self testDataFromTempate:@"HappyZcool-2016" textName:@"text"];
+//    self.iDuckling.data = [self testDataFromTempate:@"ZhenyanGB-Regular" textName:@"text"];
+//    self.iDuckling.data = [self testDataFromTempate:@"PangMenZhengDao" textName:@"text"];
+    self.iDuckling.data = [self testDataFromTempate:@"xiaowei" textName:@"text"];
+//    self.iDuckling.data = [self testDataFromTempate:@"SourceHanSerif-Heavy" textName:@"text"];
+//    self.iDuckling.data = [self testDataFromTempate:@"SourceHanSansCN-Bold" textName:@"text"];
+    
     self.iDuckling.cursor = 0;
     self.iDuckling.originOffsety = 80;
     
@@ -99,6 +105,41 @@
     assert(error == nil);
     
     return data;
+}
+
+
+-(NSArray <DucklingModel *>*)testDataFromTempate:(NSString *)templateName textName:(NSString *)textName{
+    
+    NSString *templatePath = [[NSBundle mainBundle] pathForResource:templateName ofType:@"json"];
+    NSData *partyData = [[NSData alloc] initWithContentsOfFile:templatePath];
+    
+    NSError *error;
+    NSArray *templateArr = [NSJSONSerialization JSONObjectWithData:partyData options:NSJSONReadingMutableContainers error:&error];
+    assert(error == nil);
+    
+    
+    NSString *textPath = [[NSBundle mainBundle] pathForResource:textName ofType:@"json"];
+    partyData = [[NSData alloc] initWithContentsOfFile:textPath];
+    
+    NSArray *textArr = [NSJSONSerialization JSONObjectWithData:partyData options:NSJSONReadingMutableContainers error:&error];
+    assert(error == nil);
+    
+    NSMutableArray <DucklingModel *>*datas = [NSMutableArray new];
+    for (int i=0; i<[textArr count]; i++) {
+        NSDictionary *template = templateArr[i%[templateArr count]];
+        NSMutableDictionary *text = [textArr[i] mutableCopy];
+        [text addEntriesFromDictionary:template];
+        
+        DucklingModel *m = [[DucklingModel alloc] initWithDictionary:text error:&error];
+        assert(error == nil);
+        
+        [datas addObject:m];
+        
+        
+    }
+    
+    
+    return datas;
 }
 
 @end

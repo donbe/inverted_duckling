@@ -27,6 +27,13 @@
 		36C8EC7D245ABED800CB20B0 /* 站酷小薇LOGO体.otf in Resources */ = {isa = PBXBuildFile; fileRef = 36C8EC77245ABED800CB20B0 /* 站酷小薇LOGO体.otf */; };
 		36C8EC7E245ABED800CB20B0 /* 庞门正道体.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36C8EC78245ABED800CB20B0 /* 庞门正道体.ttf */; };
 		36C8EC7F245ABED800CB20B0 /* 站酷快乐体2016修订版.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36C8EC79245ABED800CB20B0 /* 站酷快乐体2016修订版.ttf */; };
+		36C8ECC62462501300CB20B0 /* HappyZcool-2016.json in Resources */ = {isa = PBXBuildFile; fileRef = 36C8ECC52462501300CB20B0 /* HappyZcool-2016.json */; };
+		36C8ECC82462501800CB20B0 /* text.json in Resources */ = {isa = PBXBuildFile; fileRef = 36C8ECC72462501800CB20B0 /* text.json */; };
+		36C8ECCE246255C600CB20B0 /* SourceHanSerif-Heavy.json in Resources */ = {isa = PBXBuildFile; fileRef = 36C8ECC9246255C600CB20B0 /* SourceHanSerif-Heavy.json */; };
+		36C8ECCF246255C600CB20B0 /* ZhenyanGB-Regular.json in Resources */ = {isa = PBXBuildFile; fileRef = 36C8ECCA246255C600CB20B0 /* ZhenyanGB-Regular.json */; };
+		36C8ECD0246255C600CB20B0 /* xiaowei.json in Resources */ = {isa = PBXBuildFile; fileRef = 36C8ECCB246255C600CB20B0 /* xiaowei.json */; };
+		36C8ECD1246255C600CB20B0 /* PangMenZhengDao.json in Resources */ = {isa = PBXBuildFile; fileRef = 36C8ECCC246255C600CB20B0 /* PangMenZhengDao.json */; };
+		36C8ECD2246255C600CB20B0 /* SourceHanSansCN-Bold.json in Resources */ = {isa = PBXBuildFile; fileRef = 36C8ECCD246255C600CB20B0 /* SourceHanSansCN-Bold.json */; };
 		41D8A117369F261DCFD58309 /* Pods_InvertedDuckling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC175773BA0494B40C0016E /* Pods_InvertedDuckling.framework */; };
 		66749D96F5EC58BBC06E5D62 /* Pods_InvertedDuckling_InvertedDucklingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F15ECA452DACACEB6BFF749B /* Pods_InvertedDuckling_InvertedDucklingUITests.framework */; };
 		FF8CF25039ACF17E2EDF58B8 /* Pods_InvertedDucklingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7ED156128A50980D11ABA79 /* Pods_InvertedDucklingTests.framework */; };
@@ -84,6 +91,13 @@
 		36C8EC77245ABED800CB20B0 /* 站酷小薇LOGO体.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "站酷小薇LOGO体.otf"; sourceTree = "<group>"; };
 		36C8EC78245ABED800CB20B0 /* 庞门正道体.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "庞门正道体.ttf"; sourceTree = "<group>"; };
 		36C8EC79245ABED800CB20B0 /* 站酷快乐体2016修订版.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "站酷快乐体2016修订版.ttf"; sourceTree = "<group>"; };
+		36C8ECC52462501300CB20B0 /* HappyZcool-2016.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "HappyZcool-2016.json"; sourceTree = "<group>"; };
+		36C8ECC72462501800CB20B0 /* text.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = text.json; sourceTree = "<group>"; };
+		36C8ECC9246255C600CB20B0 /* SourceHanSerif-Heavy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SourceHanSerif-Heavy.json"; sourceTree = "<group>"; };
+		36C8ECCA246255C600CB20B0 /* ZhenyanGB-Regular.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ZhenyanGB-Regular.json"; sourceTree = "<group>"; };
+		36C8ECCB246255C600CB20B0 /* xiaowei.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = xiaowei.json; sourceTree = "<group>"; };
+		36C8ECCC246255C600CB20B0 /* PangMenZhengDao.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PangMenZhengDao.json; sourceTree = "<group>"; };
+		36C8ECCD246255C600CB20B0 /* SourceHanSansCN-Bold.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SourceHanSansCN-Bold.json"; sourceTree = "<group>"; };
 		6265E0BFC227FFA211C91716 /* Pods-InvertedDuckling-InvertedDucklingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InvertedDuckling-InvertedDucklingUITests.release.xcconfig"; path = "Target Support Files/Pods-InvertedDuckling-InvertedDucklingUITests/Pods-InvertedDuckling-InvertedDucklingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		626C6287F428503D534BD9A6 /* Pods-InvertedDucklingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InvertedDucklingTests.release.xcconfig"; path = "Target Support Files/Pods-InvertedDucklingTests/Pods-InvertedDucklingTests.release.xcconfig"; sourceTree = "<group>"; };
 		79BE51A013E64CE732927D13 /* Pods-InvertedDuckling.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InvertedDuckling.release.xcconfig"; path = "Target Support Files/Pods-InvertedDuckling/Pods-InvertedDuckling.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +163,13 @@
 		36C8EC1A2451741800CB20B0 /* InvertedDuckling */ = {
 			isa = PBXGroup;
 			children = (
+				36C8ECCC246255C600CB20B0 /* PangMenZhengDao.json */,
+				36C8ECCD246255C600CB20B0 /* SourceHanSansCN-Bold.json */,
+				36C8ECC9246255C600CB20B0 /* SourceHanSerif-Heavy.json */,
+				36C8ECCB246255C600CB20B0 /* xiaowei.json */,
+				36C8ECCA246255C600CB20B0 /* ZhenyanGB-Regular.json */,
+				36C8ECC52462501300CB20B0 /* HappyZcool-2016.json */,
+				36C8ECC72462501800CB20B0 /* text.json */,
 				36C8EC5324557C9400CB20B0 /* demo.json */,
 				36C8EC50245533A500CB20B0 /* DucklingView.h */,
 				36C8EC51245533A500CB20B0 /* DucklingView.m */,
@@ -327,12 +348,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36C8ECC62462501300CB20B0 /* HappyZcool-2016.json in Resources */,
 				36C8EC2B2451741C00CB20B0 /* LaunchScreen.storyboard in Resources */,
+				36C8ECD1246255C600CB20B0 /* PangMenZhengDao.json in Resources */,
+				36C8ECC82462501800CB20B0 /* text.json in Resources */,
 				36C8EC282451741C00CB20B0 /* Assets.xcassets in Resources */,
 				36C8EC7B245ABED800CB20B0 /* 锐字真言体.ttf in Resources */,
+				36C8ECD0246255C600CB20B0 /* xiaowei.json in Resources */,
 				36C8EC7E245ABED800CB20B0 /* 庞门正道体.ttf in Resources */,
 				36C8EC7C245ABED800CB20B0 /* 思源黑体.otf in Resources */,
+				36C8ECCF246255C600CB20B0 /* ZhenyanGB-Regular.json in Resources */,
+				36C8ECD2246255C600CB20B0 /* SourceHanSansCN-Bold.json in Resources */,
 				36C8EC5424557C9400CB20B0 /* demo.json in Resources */,
+				36C8ECCE246255C600CB20B0 /* SourceHanSerif-Heavy.json in Resources */,
 				36C8EC7A245ABED800CB20B0 /* 思源宋体.ttc in Resources */,
 				36C8EC7F245ABED800CB20B0 /* 站酷快乐体2016修订版.ttf in Resources */,
 				36C8EC7D245ABED800CB20B0 /* 站酷小薇LOGO体.otf in Resources */,
