@@ -376,10 +376,6 @@ float cubicBezier (float x, float a, float b, float c, float d);
 -(void)setCursor:(NSTimeInterval)cursor{
     _cursor = cursor;
     
-    if ([self.data count] == 0) {
-        return;
-    }
-    
     // 符合条件的数据放入temp中
     NSMutableArray *temp = [NSMutableArray new];
     for (int i=0; i<[self.data count]; i++) {
